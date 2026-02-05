@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html><head><style>
+    body {
+        margin: 0;
+    }
+</style></head><body>
+<canvas id="canvas" width="1160px" height="580px"></canvas>
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.lineWidth = 10;
+
+    const clearBackground = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    };
+
+    const blockSide = 36;
+    const margin = 4;
+    const dungeonPiecesCenterX = 450;
+    const dungeonPiecesCenterY = 300;
+    let dungeonPiecesMasterData = null;
+    let allDungeonParts = null;
+    const dungeonPieceAssetPathPat = /^Adventure\/Dungeon\/Piece\/PartsCity10\/(DungeonParts(?:_2x1)?_[^_]+)(?:_(\d+))?$/;
+    let currentDungeonPieces = null;
+
+    const drawEntrance = (startx, starty, block) => {
+        ctx.strokeStyle = "#FF00FF";
+
+        if (block.top === 1) {
+            ctx.beginPath();
+            ctx.moveTo(startx, starty);
+            ctx.lineTo(startx + blockSide, starty);
+            ctx.stroke();
+        }
+
+        if (block.right === 1) {
+            ctx.beginPath();
+            ctx.moveTo(startx + blockSide, starty);
+            ctx.lineTo(startx + blockSide, starty + blockSide);
+            ctx.stroke();
+        }
+
+        if (block.bottom === 1) {
+            ctx.beginPath();
+            ctx.moveTo(startx, starty + blockSide);
+            ctx.lineTo(startx + blockSide, starty + blockSide);
+            ctx.stroke();
+        }
+
+        if (block.left === 1) {
+            ctx.beginPath();
+            ctx.moveTo(startx, starty);
+            ctx.lineTo(startx, starty + blockSide);
+            ctx.stroke();
+        }
+    }
+
+    const drawDungeonPart = (i, x, y, dungeonPart, backgroundColor) => {
+        dungeonPart.forEach((block) => {
+            const startx = x + block.x*blockSide;
+            const starty = y + block.y*blockSide;
+            if (backgroundColor === undefined) {
+                backgroundColor = "#FFFFFF";
+            }
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.strokeRect(startx, starty, blockSide, blockSide);
+
+            const padding = 2;
+            ctx.fillStyle = backgroundColor;
+            ctx.font = blockSide.toString() + "px serif"
+            const textx = startx + padding;
+            const texty = y + block.y*blockSide + blockSide - padding;
+            ctx.fillText(i.toString(), textx, texty, blockSide);
+        });
+
+        dungeonPart.forEach((block) => {
+            const startx = x + block.x*blockSide;
+            const starty = y + block.y*blockSide;
+            drawEntrance(startx, starty, block);
+        });
+    };
+
+    const dungeonParts = {
+        DungeonParts_Start: [{x: 0, y: 0, top: 1, right: 0, bottom: 0, left: 0}],
+        DungeonParts_Boss: [{x: 0, y: 0, top: 0, right: 0, bottom: 1, left: 0}],
+        DungeonParts_CurveL01: [{x: 0, y: 0, top: 1, right: 1, bottom: 0, left: 0}],
+        DungeonParts_Straight01: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
+        DungeonParts_Straight02: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
+        DungeonParts_Straight03: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
+        DungeonParts_Straight04: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
+        DungeonParts_Straight05: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
+        DungeonParts_2x1_CurveL01: [
+            {x: 0, y: 0, top: 1, right: 0, bottom: 0, left: 0},
+            {x: 1, y: 0, top: 0, right: 1, bottom: 0, left: 0}
+        ],
+        DungeonParts_2x1_CurveReverseL01: [
+            {x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 1},
+            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 0}
+        ],
+        DungeonParts_2x1_CurveReverseL02: [
+            {x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 1},
+            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 0}
+        ],
+        DungeonParts_2x1_CurveS01: [
+            {x: 0, y: 0, top: 1, right: 0, bottom: 0, left: 0},
+            {x: 1, y: 0, top: 0, right: 0, bottom: 1, left: 0}
+        ],
+        DungeonParts_2x1_CurveReverseS01: [
+            {x: 0, y: 0, top: 0, right: 0, bottom: 1, left: 0},
+            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 0}
+        ],
+        DungeonParts_2x1_CurveU01: [
+            {x: 0, y: 0, top: 1, right: 0, bottom: 0, left: 0},
+            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 0}
+        ],
+        DungeonParts_2x1_Straight02: [
+            {x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 1},
+            {x: 1, y: 0, top: 0, right: 1, bottom: 0, left: 0}
+        ],
+    };
+
+    /* dungeonPart rotates counterclockwise but the entrances clockwise */
+    const rotateDungeonPart = (dungeonPart, angle) => {
+        if (angle == 90) {
+            const result = new Array();
+            for (const block of dungeonPart) {
+                result.push({
+                    x: -(block.y),
+                    y: block.x,
+                    top: block.left,
+                    right: block.top,
+                    bottom: block.right,
+                    left: block.bottom,
+                })
+            }
+            return result;
+        }
+
+        let result = dungeonPart;
+
+        for (let i = 0; i < angle/90; ++i) {
+            result = rotateDungeonPart(result, 90);
+        }
+
+        return result;
+    };
+
+    const getJson = async (url) => {
+        const res = await fetch(url);
+        return res.json();
+    };
+
+    const splitAssetPath = (assetPath) => {
+        const match = assetPath.match(dungeonPieceAssetPathPat);
+        return (match !== null) ? {name: match[1], angle: (match[2] !== undefined ? +match[2] : null)} : null;
+    };
+
+    const dungeonPieceIdToAssetName = (dungeonPieceId, dungeonPiecesMasterData) => {
+        for (const dungeonPiece of dungeonPiecesMasterData) {
+            if (dungeonPiece.id === dungeonPieceId) {
+                return splitAssetPath(dungeonPiece.asset_path);
+            }
+        }
+        return null;
+    };
+
+    const drawDungeonPieces = (x, y, dungeonPieces, dungeonPiecesMasterData) => {
+        let i = 0;
+        for (const dungeonPiece of dungeonPieces) {
+            let asset = dungeonPieceIdToAssetName(dungeonPiece.dungeonPieceId, dungeonPiecesMasterData);
+            let dungeonPart = dungeonParts[asset.name];
+
+            if (dungeonPart) {
+                const dungeonPieceX = (dungeonPiece.x ? dungeonPiece.x : 0);
+                const dungeonPieceY = (dungeonPiece.y ? dungeonPiece.y : 0);
+                const dungeonPartX = x + dungeonPieceX*(blockSide + margin);
+                const dungeonPartY = y + dungeonPieceY*(blockSide + margin);
+
+                if (asset.angle !== null) {
+                    dungeonPart = rotateDungeonPart(dungeonPart, asset.angle);
+                }
+
+                let backgroundColor = "#FFFFFF";
+                if (asset.name == "DungeonParts_Start") {
+                    backgroundColor = "#FF0000";
+                } else if (asset.name == "DungeonParts_Boss") {
+                    backgroundColor = "#00FF00";
+                }
+
+                drawDungeonPart(i, dungeonPartX, dungeonPartY, dungeonPart, backgroundColor);
+            } else {
+                console.log("WARNING: " + asset.name + " not found in dungeonParts!!!");
+            }
+
+            i += 1;
+        }
+    }
+
+    const draw = () => {
+        clearBackground();
+
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font = "20px serif";
+        ctx.fillText("Controls: ", 20, 150);
+
+        drawDungeonPieces(
+            dungeonPiecesCenterX, dungeonPiecesCenterY,
+            currentDungeonPieces, dungeonPiecesMasterData
+        );
+    };
+
+    const setBlock = (blockMap, block) => {
+        if (blockMap[block.y] === undefined) {
+            blockMap[block.y] = {}
+        }
+
+        blockMap[block.y][block.x] = block;
+    };
+
+    const getBlock = (blockMap, x, y) => {
+        if (blockMap[y] === undefined) {
+            return null;
+        }
+
+        if (blockMap[y][x] === undefined) {
+            return null;
+        }
+
+        return blockMap[y][x];
+    };
+
+    const myClone = (obj) => {
+        return JSON.parse(JSON.stringify(obj));
+    };
+
+    const canChain = (block, toBlock) => {
+        if (block.top === 1 && toBlock.bottom === 1) {
+            return {x: 0, y: -1};
+        } else if (block.bottom === 1 && toBlock.top === 1) {
+            return {x: 0, y: 1};
+        } else if (block.left === 1 && toBlock.right === 1) {
+            return {x: -1, y: 0};
+        } else if (block.right === 1 && toBlock.left === 1) {
+            return {x: 1, y: 0};
+        } else {
+            return null;
+        }
+    }
+
+    const canChainOneOfBlocks = (lastBlock, part) => {
+        for (const block of part) {
+            let toBlockNewPos = canChain(lastBlock, block);
+            if (toBlockNewPos !== null) {
+                return toBlockNewPos;
+            }
+        }
+        return null;
+    };
+
+    const getRandomInt = (min, max) => {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+    };
+    
+    const copyAndApplyPos = (part, pos) => {
+        let partCopy = myClone(part);
+        for (const block of partCopy.blocks) {
+            block.x += pos.x;
+            block.y += pos.y;
+        }
+        return partCopy
+    };
+
+    const checkBlocksDontClash = (toDungeonPart, blockMap) => {
+        for (const toBlock of toDungeonPart.blocks) {
+            if (getBlock(blockMap, toBlock.x, toBlock.y) !== null) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const canBeChained = (block, toDungeonPart, blockMap) => {
+        let i = 0;
+
+        /* let toTop = false;
+
+        for (const toBlock of toDungeonPart.blocks) {
+            if (toBlock.top == 1) {
+                toTop = true;
+            }
+        }
+
+        if (!toTop) {
+            return null;
+        } */
+
+        for (const toBlock of toDungeonPart.blocks) {
+            if (block.top == 1 && toBlock.bottom == 1) {
+                result = copyAndApplyPos(toDungeonPart, {x: -toBlock.x + block.x, y: -toBlock.y - 1  + block.y});
+                result.blocks[i].bottom = 2;
+                if (checkBlocksDontClash(result, blockMap)) {
+                    return result;
+                }
+            } 
+            
+            if (block.bottom == 1 && toBlock.top == 1) {
+                result = copyAndApplyPos(toDungeonPart,  {x: -toBlock.x + block.x, y: -toBlock.y + 1 + block.y});
+                result.blocks[i].top = 2;
+                if (checkBlocksDontClash(result, blockMap)) {
+                    return result;
+                }
+            } 
+            
+            if (block.right == 1 && toBlock.left == 1) {
+                result = copyAndApplyPos(toDungeonPart,  {x: -toBlock.x + 1 + block.x, y: -toBlock.y + block.y});
+                result.blocks[i].left = 2;
+                if (checkBlocksDontClash(result, blockMap)) {
+                    return result;
+                }
+            }
+
+            if (block.left == 1 && toBlock.right == 1) {
+                result = copyAndApplyPos(toDungeonPart,  {x: -toBlock.x - 1 + block.x, y: -toBlock.y + block.y});
+                result.blocks[i].right = 2;
+                if (checkBlocksDontClash(result, blockMap)) {
+                    return result;
+                }
+            }
+            i += 1;
+        }
+
+        return null;
+    };
+
+    const dungeonPartToGame = (dungeonPart) => {
+        return {
+            "x": dungeonPart.blocks[0].x, "y": dungeonPart.blocks[0].y,
+            "rotation": (dungeonPart.angle !== null ? dungeonPart.angle : 0 ),
+            "dungeonPieceId": dungeonPart.id
+        }
+    };
+
+    const getMap = (blockMap, x, y) => {
+        if (blockMap[y] !== undefined) {
+            if (blockMap[y][x] !== undefined) {
+                return blockMap[y][x]
+            }
+        }
+
+        return null;
+    };
+
+    const setMap = (blockMap, x, y, val) => {
+        if (blockMap[y] === undefined) {
+            blockMap[y] = {}
+        }
+
+        blockMap[y][x] = val
+    };
+
+    const genDungeon = () => {
+        currentDungeonPieces = new Array();
+        let lastBlock = allDungeonParts[0].blocks[0];
+        currentDungeonPieces.push(
+            dungeonPartToGame(allDungeonParts[0]),
+        );
+
+        const blockMap = {};
+
+        setBlock(blockMap, lastBlock);
+
+        for (let j = 0; j < 8; ++j) {
+            console.log("lastBlock: ", lastBlock);
+            let canBeChainedParts = new Array();
+
+            for (const part of allDungeonParts) {
+                const newPart = canBeChained(lastBlock, part, blockMap);
+                if (newPart !== null) {
+                    canBeChainedParts.push(newPart);
+                }
+            }
+
+            console.log("canBeChainedParts.length", canBeChainedParts.length);
+            if (canBeChainedParts.length == 0) {
+                console.log("canBeChainedParts.length == 0")
+                break;
+            }
+
+            let i = getRandomInt(0, canBeChainedParts.length);
+            let part = canBeChainedParts[i]
+
+            for (const block of part.blocks) {
+                setBlock(blockMap, block);
+            }
+            
+            let matchNextBlock = null;
+            for (const block of part.blocks) {
+                if (block.top === 1 || block.bottom === 1 || block.left === 1 || block.right === 1) {
+                    matchNextBlock = block;
+                }
+            }
+
+            currentDungeonPieces.push(dungeonPartToGame(part));
+
+            if (!matchNextBlock) {
+                if (part.id !== 100201) {
+                    console.log("!matchNextBlock", i, part);
+                }
+                
+                return;
+            }
+
+            lastBlock = matchNextBlock;
+            
+        }
+
+        console.log(blockMap);
+    };
+
+    const main = async () => {
+        dungeonPiecesMasterData = await getJson("dungeon_piece.json");
+
+        allDungeonParts = new Array();
+
+        for (const dungeonPart of dungeonPiecesMasterData) {
+            let asset = splitAssetPath(dungeonPart.asset_path);
+            if (asset !== null) {
+                let blocks = dungeonParts[asset.name];
+                if (asset.angle !== null) {
+                    blocks = rotateDungeonPart(blocks, asset.angle)
+                }
+                allDungeonParts.push({
+                    blocks: blocks,
+                    id: dungeonPart.id,
+                    angle: asset.angle,
+                })
+            }
+        }
+
+        genDungeon();
+        draw();
+
+        document.body.addEventListener("keyup", (ev) => {
+            if (ev.key == "a") {
+                
+            } else if (ev.key == "d") {
+                
+            }
+        });
+    };
+
+    main();
+</script></body></html>
