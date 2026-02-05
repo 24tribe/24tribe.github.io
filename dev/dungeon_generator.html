@@ -8,21 +8,16 @@
 <script>
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
-
-    canvas.lineWidth = 10;
+    const blockSide = 36;
+    const margin = 4;
+    const dungeonPieceAssetPathPat = /^Adventure\/Dungeon\/Piece\/PartsCity10\/(DungeonParts(?:_2x1)?_[^_]+)(?:_(\d+))?$/;
+    const moveDist = 20;
 
     const clearBackground = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#000000";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
-
-    const blockSide = 36;
-    const margin = 4;
-    const dungeonPiecesCenterX = 450;
-    const dungeonPiecesCenterY = 300;
-    const dungeonPieceAssetPathPat = /^Adventure\/Dungeon\/Piece\/PartsCity10\/(DungeonParts(?:_2x1)?_[^_]+)(?:_(\d+))?$/;
-    let currentDungeonPieces = null;
 
     const drawEntrance = (startx, starty, block) => {
         ctx.strokeStyle = "#FF00FF";
@@ -197,7 +192,7 @@
         }
     }
 
-    const draw = (dungeonPiecesMasterData) => {
+    const draw = (dungeonPiecesMasterData, dungeonPieces, centerX, centerY) => {
         clearBackground();
 
         ctx.fillStyle = "#FFFFFF";
@@ -213,10 +208,7 @@
             ctx.fillText(s, x, y);
         }
 
-        drawDungeonPieces(
-            dungeonPiecesCenterX, dungeonPiecesCenterY,
-            currentDungeonPieces, dungeonPiecesMasterData
-        );
+        drawDungeonPieces(centerX, centerY, dungeonPieces, dungeonPiecesMasterData);
     };
 
     const setBlock = (blockMap, block) => {
@@ -272,7 +264,7 @@
         const maxFloored = Math.floor(max);
         return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
     };
-    
+
     const copyAndApplyPos = (part, pos) => {
         let partCopy = myClone(part);
         for (const block of partCopy.blocks) {
@@ -302,7 +294,7 @@
                     return result;
                 }
             } 
-            
+
             if (block.bottom == 1 && toBlock.top == 1) {
                 result = copyAndApplyPos(toDungeonPart,  {x: -toBlock.x + block.x, y: -toBlock.y + 1 + block.y});
                 result.blocks[i].top = 2;
@@ -310,7 +302,7 @@
                     return result;
                 }
             } 
-            
+
             if (block.right == 1 && toBlock.left == 1) {
                 result = copyAndApplyPos(toDungeonPart,  {x: -toBlock.x + 1 + block.x, y: -toBlock.y + block.y});
                 result.blocks[i].left = 2;
@@ -359,9 +351,9 @@
     };
 
     const genDungeon = (allDungeonParts) => {
-        currentDungeonPieces = new Array();
+        let result = new Array();
         let lastBlock = allDungeonParts[0].blocks[0];
-        currentDungeonPieces.push(
+        result.push(
             dungeonPartToGame(allDungeonParts[0]),
         );
 
@@ -370,7 +362,6 @@
         setBlock(blockMap, lastBlock);
 
         for (let j = 0; j < 8; ++j) {
-            console.log("lastBlock: ", lastBlock);
             let canBeChainedParts = new Array();
 
             for (const part of allDungeonParts) {
@@ -380,7 +371,6 @@
                 }
             }
 
-            console.log("canBeChainedParts.length", canBeChainedParts.length);
             if (canBeChainedParts.length == 0) {
                 console.log("canBeChainedParts.length == 0")
                 break;
@@ -392,7 +382,7 @@
             for (const block of part.blocks) {
                 setBlock(blockMap, block);
             }
-            
+
             let matchNextBlock = null;
             for (const block of part.blocks) {
                 if (block.top === 1 || block.bottom === 1 || block.left === 1 || block.right === 1) {
@@ -400,21 +390,21 @@
                 }
             }
 
-            currentDungeonPieces.push(dungeonPartToGame(part));
+            result.push(dungeonPartToGame(part));
 
             if (!matchNextBlock) {
                 if (part.id !== 100201) {
                     console.log("!matchNextBlock", i, part);
                 }
-                
-                return;
+
+                return result;
             }
 
             lastBlock = matchNextBlock;
-            
+
         }
 
-        console.log(blockMap);
+        return result;
     };
 
     const parseMasterData = (dungeonPiecesMasterData) => {
@@ -439,15 +429,28 @@
     const main = async () => {
         const dungeonPiecesMasterData = await getJson("dungeon_piece.json");
         const allDungeonParts = parseMasterData(dungeonPiecesMasterData);
+        let dungeonPieces = genDungeon(allDungeonParts);
+        let dungeonPiecesCenterX = 450;
+        let dungeonPiecesCenterY = 300;
 
-        genDungeon(allDungeonParts);
-        draw(dungeonPiecesMasterData);
+        draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
 
         document.body.addEventListener("keyup", (ev) => {
             if (ev.key == "a") {
-                
+                dungeonPiecesCenterX -= moveDist
+                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "d") {
-                
+                dungeonPiecesCenterX += moveDist
+                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+            } else if (ev.key == "w") {
+                dungeonPiecesCenterY -= moveDist
+                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+            } else if (ev.key == "s") {
+                dungeonPiecesCenterY += moveDist
+                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+            } else if (ev.key == "r") {
+                dungeonPieces = genDungeon(allDungeonParts);
+                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             }
         });
     };
