@@ -204,7 +204,16 @@
 
         ctx.fillStyle = "#FFFFFF";
         ctx.font = "20px serif";
-        ctx.fillText("Controls: ", 20, 150);
+
+        const msgs = [
+            ["Controls:", 3, 23],
+            ["a,w,s,d: Move dungeon", 3, 46],
+            ["r: Recreate dungeon", 3, 69],
+        ];
+
+        for (const [s, x, y] of msgs) {
+            ctx.fillText(s, x, y);
+        }
 
         drawDungeonPieces(
             dungeonPiecesCenterX, dungeonPiecesCenterY,
