@@ -296,18 +296,6 @@
     const canBeChained = (block, toDungeonPart, blockMap) => {
         let i = 0;
 
-        /* let toTop = false;
-
-        for (const toBlock of toDungeonPart.blocks) {
-            if (toBlock.top == 1) {
-                toTop = true;
-            }
-        }
-
-        if (!toTop) {
-            return null;
-        } */
-
         for (const toBlock of toDungeonPart.blocks) {
             if (block.top == 1 && toBlock.bottom == 1) {
                 result = copyAndApplyPos(toDungeonPart, {x: -toBlock.x + block.x, y: -toBlock.y - 1  + block.y});
