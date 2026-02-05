@@ -21,8 +21,6 @@
     const margin = 4;
     const dungeonPiecesCenterX = 450;
     const dungeonPiecesCenterY = 300;
-    let dungeonPiecesMasterData = null;
-    let allDungeonParts = null;
     const dungeonPieceAssetPathPat = /^Adventure\/Dungeon\/Piece\/PartsCity10\/(DungeonParts(?:_2x1)?_[^_]+)(?:_(\d+))?$/;
     let currentDungeonPieces = null;
 
@@ -199,7 +197,7 @@
         }
     }
 
-    const draw = () => {
+    const draw = (dungeonPiecesMasterData) => {
         clearBackground();
 
         ctx.fillStyle = "#FFFFFF";
@@ -360,7 +358,7 @@
         blockMap[y][x] = val
     };
 
-    const genDungeon = () => {
+    const genDungeon = (allDungeonParts) => {
         currentDungeonPieces = new Array();
         let lastBlock = allDungeonParts[0].blocks[0];
         currentDungeonPieces.push(
@@ -419,11 +417,8 @@
         console.log(blockMap);
     };
 
-    const main = async () => {
-        dungeonPiecesMasterData = await getJson("dungeon_piece.json");
-
-        allDungeonParts = new Array();
-
+    const parseMasterData = (dungeonPiecesMasterData) => {
+        const allDungeonParts = new Array();
         for (const dungeonPart of dungeonPiecesMasterData) {
             let asset = splitAssetPath(dungeonPart.asset_path);
             if (asset !== null) {
@@ -438,9 +433,15 @@
                 })
             }
         }
+        return allDungeonParts;
+    }
 
-        genDungeon();
-        draw();
+    const main = async () => {
+        const dungeonPiecesMasterData = await getJson("dungeon_piece.json");
+        const allDungeonParts = parseMasterData(dungeonPiecesMasterData);
+
+        genDungeon(allDungeonParts);
+        draw(dungeonPiecesMasterData);
 
         document.body.addEventListener("keyup", (ev) => {
             if (ev.key == "a") {
