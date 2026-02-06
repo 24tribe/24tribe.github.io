@@ -350,6 +350,16 @@
         blockMap[y][x] = val
     };
 
+    const getNextBlock = (part) => {
+        for (const block of part.blocks) {
+            if (block.top === 1 || block.bottom === 1 || block.left === 1 || block.right === 1) {
+                return block;
+            }
+        }
+
+        return null;
+    };
+
     const genDungeon = (allDungeonParts) => {
         let result = new Array();
         let lastBlock = allDungeonParts[0].blocks[0];
@@ -383,26 +393,16 @@
                 setBlock(blockMap, block);
             }
 
-            let matchNextBlock = null;
-            for (const block of part.blocks) {
-                if (block.top === 1 || block.bottom === 1 || block.left === 1 || block.right === 1) {
-                    matchNextBlock = block;
-                }
-            }
-
             result.push(dungeonPartToGame(part));
 
-            if (!matchNextBlock) {
-                if (part.id !== 100201) {
-                    console.log("!matchNextBlock", i, part);
-                }
+            lastBlock = getNextBlock(part);
 
-                return result;
+            if (lastBlock === null) {
+                return result
             }
-
-            lastBlock = matchNextBlock;
-
         }
+
+        console.log(result);
 
         return result;
     };
