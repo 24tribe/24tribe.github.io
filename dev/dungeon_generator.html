@@ -192,6 +192,87 @@
         }
     }
 
+    const nonVisitedNode = "N";
+    const visitedNode = "V";
+    const objectiveNode = "O"
+
+    const createGrid = (gridSize) => {
+        const grid = [];
+        for (let y = 0; y < gridSize; ++y) {
+            grid[y] = [];
+            for (let x = 0; x < gridSize; ++x) {
+                grid[y][x] = nonVisitedNode
+            }
+        }
+        return grid;
+    };
+
+    const getNeighbourPositions = (x, y) => {
+        return [
+            [x - 1, y],
+            [x + 1, y],
+            [x, y + 1],
+            [x, y - 1],
+        ];
+    };
+
+    const getPossibleNextPositions = (x, y, grid) => {
+        const result = new Array();
+
+        for (const [neightbourX, neightbourY] of getNeighbourPositions(x, y)) {
+            let row = grid[neightbourY];
+            if (row !== undefined) {
+                const node = row[neightbourX]
+                if (node === nonVisitedNode || node === objectiveNode) {
+                    result.push([neightbourX, neightbourY]);
+                }
+            }
+        }
+
+        return result;
+    };
+
+    const getPath = (gridSize) => {
+        let grid = createGrid(gridSize);
+        
+        let objX = getRandomInt(0, gridSize);
+        let startX = getRandomInt(0, gridSize);
+        grid[0][objX] = objectiveNode;
+        grid[0][objX-1] = visitedNode;
+        grid[0][objX+1] = visitedNode;
+        const startY = gridSize - 1;
+
+        const visited = [[startX, startY]];
+        grid[startY][startX-1] = visitedNode;
+        grid[startY][startX] = visitedNode;
+        grid[startY][startX+1] = visitedNode;
+
+        let x = startX;
+        let y = startY;
+
+        while (grid[y][x] !== objectiveNode) {
+            const nextPositions = getPossibleNextPositions(x, y, grid);
+            if (nextPositions.length == 0) {
+                visited.pop();
+                const [lastNodeX, lastNodeY] = visited[visited.length - 1];
+                x = lastNodeX;
+                y = lastNodeY;
+                continue;
+            }
+            const [nextX, nextY] = nextPositions[getRandomInt(0, nextPositions.length)];
+
+            if (grid[nextY][nextX] !== objectiveNode) {
+                grid[nextY][nextX] = visitedNode;
+            }
+
+            x = nextX;
+            y = nextY;
+            visited.push([x, y]);
+        }
+
+        return visited;
+    };
+
     const draw = (dungeonPiecesMasterData, dungeonPieces, centerX, centerY) => {
         clearBackground();
 
@@ -208,7 +289,14 @@
             ctx.fillText(s, x, y);
         }
 
-        drawDungeonPieces(centerX, centerY, dungeonPieces, dungeonPiecesMasterData);
+        const gridSize = 5;
+        
+        let path = getPath(gridSize);
+        for (const [x, y] of path) {
+            console.log("path x: ", x, " y: ", y);
+        }
+
+        // drawDungeonPieces(centerX, centerY, dungeonPieces, dungeonPiecesMasterData);
     };
 
     const setBlock = (blockMap, block) => {
