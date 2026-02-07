@@ -194,24 +194,6 @@
         return true;
     };
 
-    const getMiddleNodesEntrances = (path) => {
-        const middleNodesEntrances = new Array();
-
-        for (let j = 1; j < path.length - 1; ++j) {
-            const entrances = {top: 0, right: 0, bottom: 0, left: 0};
-            const node = path[j];
-            const lastNode = path[j - 1];
-            const nextNode = path[j + 1];
-
-            updateEntrances(entrances, lastNode, node);
-            updateEntrances(entrances, nextNode, node);
-
-            middleNodesEntrances.push(entrances);
-        }
-
-        return middleNodesEntrances;
-    };
-
     const getPossibleParts = (middleParts, i, path, middleNodesEntrances) => {
         const possibleParts = [];
         for (const part of middleParts) {

@@ -150,3 +150,16 @@ proc updateEntrances*(entrances: var Entrances, nodePos: Position, otherNodePos:
         entrances.bottom = 1
     elif diffY == -1:
         entrances.top = 1;
+
+
+proc getMiddleNodesEntrances*(path: Path): seq[Entrances] {.exportc} =
+    for i in 1 ..< path.len - 1:
+        var entrances = Entrances(top: 0, right: 0, bottom: 0, left: 0)
+        let nodePos = path[i]
+        let lastNodePos = path[i - 1]
+        let nextNodePos = path[i + 1]
+
+        updateEntrances(entrances, lastNodePos, nodePos)
+        updateEntrances(entrances, nextNodePos, nodePos)
+
+        result.add(entrances)
