@@ -110,10 +110,6 @@
         }
     }
 
-    const nonVisitedNode = "N";
-    const visitedNode = "V";
-    const objectiveNode = "O"
-
     const draw = (dungeonData, dungeonPieces, centerX, centerY) => {
         clearBackground();
 
@@ -131,10 +127,6 @@
         }
 
         drawDungeonPieces(centerX, centerY, dungeonPieces, dungeonData);
-    };
-
-    const myClone = (obj) => {
-        return JSON.parse(JSON.stringify(obj));
     };
 
     const getDungeonPartFromId = (dungeonPieceId, dungeonData) => {
@@ -172,6 +164,7 @@
                 draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "r") {
                 dungeonPieces = genDungeon2(dungeonData, shinagawaId);
+                console.log("dungeonPieces: ", dungeonPieces);
                 draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             }
         });
