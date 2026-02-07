@@ -115,36 +115,31 @@
     const visitedNode = "V";
     const objectiveNode = "O"
 
-    const getPossibleNextPositions = (x, y, grid) => {
-        const result = new Array();
-
-        for (const [neightbourX, neightbourY] of getNeighbourPositions(x, y)) {
-            let row = grid[neightbourY];
-            if (row !== undefined) {
-                const node = row[neightbourX]
-                if (node === nonVisitedNode || node === objectiveNode) {
-                    result.push([neightbourX, neightbourY]);
-                }
-            }
-        }
-
-        return result;
-    };
-
     const getPath = (gridWidth, gridHeight) => {
         let grid = createGrid(gridWidth, gridHeight);
         
         let objX = getRandomInt(gridWidth);
         let startX = getRandomInt(gridWidth);
+        if (validPosition(grid, objX - 1, 0)) {
+            grid[0][objX - 1] = visitedNode;
+        }
+        if (validPosition(grid, objX + 1, 0)) {
+            grid[0][objX + 1] = visitedNode;
+        }
         grid[0][objX] = objectiveNode;
-        grid[0][objX-1] = visitedNode;
-        grid[0][objX+1] = visitedNode;
+
         const startY = gridHeight - 1;
 
         const visited = [[startX, startY]];
-        grid[startY][startX-1] = visitedNode;
         grid[startY][startX] = visitedNode;
-        grid[startY][startX+1] = visitedNode;
+
+        if (validPosition(grid, startX - 1, startY)) {
+            grid[startY][startX - 1] = visitedNode;
+        }
+
+        if (validPosition(grid, startX - 1, startY)) {
+            grid[startY][startX + 1] = visitedNode;
+        }
 
         let x = startX;
         let y = startY;
