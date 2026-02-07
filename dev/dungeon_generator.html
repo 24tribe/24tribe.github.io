@@ -115,17 +115,6 @@
     const visitedNode = "V";
     const objectiveNode = "O"
 
-    const createGrid = (gridWidth, gridHeight) => {
-        const grid = [];
-        for (let y = 0; y < gridHeight; ++y) {
-            grid[y] = [];
-            for (let x = 0; x < gridWidth; ++x) {
-                grid[y][x] = nonVisitedNode
-            }
-        }
-        return grid;
-    };
-
     const getNeighbourPositions = (x, y) => {
         return [
             [x - 1, y],
