@@ -7,7 +7,7 @@ const nonVisitedNode = "N";
 const visitedNode = "V";
 const objectiveNode = "O"
 
-type Grid = seq[seq[cstring]]
+type Grid = seq[seq[string]]
 type Position = array[2, int]
 type Path = seq[Position]
 
@@ -37,7 +37,7 @@ type Entrances = object
 
 type DungeonPart = ref object
     id: int
-    name: cstring
+    name: string
     blocks: seq[Block]
     angle: int
 
@@ -49,7 +49,7 @@ proc getRandomInt(max: int): int = rand(0 ..< max)
 
 proc createGrid(gridWidth: int, gridHeight: int): Grid =
     for y in 0 ..< gridHeight:
-        var row = newSeq[cstring]()
+        var row = newSeq[string]()
 
         for x in 0 ..< gridWidth:
             row.add(nonVisitedNode)
@@ -83,7 +83,7 @@ proc getPossibleNextPositions(x: int, y: int, grid: Grid): seq[Position] =
                 result.add(pos)
 
 
-proc setIfValidPos(grid: var Grid, x: int, y: int, val: cstring) =
+proc setIfValidPos(grid: var Grid, x: int, y: int, val: string) =
     if validPosition(grid, x, y):
         grid[y][x] = val
 
