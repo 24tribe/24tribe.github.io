@@ -1,0 +1,1047 @@
+[
+  {
+    "id": 101,
+    "name": "DungeonParts_Start",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 201,
+    "name": "DungeonParts_Boss",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 301,
+    "name": "DungeonParts_CurveL01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 302,
+    "name": "DungeonParts_CurveL01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 303,
+    "name": "DungeonParts_CurveL01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 304,
+    "name": "DungeonParts_CurveL01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 305,
+    "name": "DungeonParts_CurveL01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 601,
+    "name": "DungeonParts_Straight01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 602,
+    "name": "DungeonParts_Straight01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 603,
+    "name": "DungeonParts_Straight01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 604,
+    "name": "DungeonParts_Straight01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 605,
+    "name": "DungeonParts_Straight01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 701,
+    "name": "DungeonParts_Straight02",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 801,
+    "name": "DungeonParts_Straight03",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 901,
+    "name": "DungeonParts_Straight04",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1001,
+    "name": "DungeonParts_Straight05",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1101,
+    "name": "DungeonParts_2x1_CurveL01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1102,
+    "name": "DungeonParts_2x1_CurveL01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1103,
+    "name": "DungeonParts_2x1_CurveL01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1104,
+    "name": "DungeonParts_2x1_CurveL01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1105,
+    "name": "DungeonParts_2x1_CurveL01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 1201,
+    "name": "DungeonParts_2x1_CurveReverseL01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1202,
+    "name": "DungeonParts_2x1_CurveReverseL01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1203,
+    "name": "DungeonParts_2x1_CurveReverseL01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1204,
+    "name": "DungeonParts_2x1_CurveReverseL01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1205,
+    "name": "DungeonParts_2x1_CurveReverseL01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 1301,
+    "name": "DungeonParts_2x1_CurveReverseL02",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1302,
+    "name": "DungeonParts_2x1_CurveReverseL02_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1303,
+    "name": "DungeonParts_2x1_CurveReverseL02_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1304,
+    "name": "DungeonParts_2x1_CurveReverseL02_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1305,
+    "name": "DungeonParts_2x1_CurveReverseL02_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 1401,
+    "name": "DungeonParts_2x1_CurveS01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1402,
+    "name": "DungeonParts_2x1_CurveS01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1403,
+    "name": "DungeonParts_2x1_CurveS01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1404,
+    "name": "DungeonParts_2x1_CurveS01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1405,
+    "name": "DungeonParts_2x1_CurveS01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 1501,
+    "name": "DungeonParts_2x1_CurveReverseS01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1502,
+    "name": "DungeonParts_2x1_CurveReverseS01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1503,
+    "name": "DungeonParts_2x1_CurveReverseS01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1504,
+    "name": "DungeonParts_2x1_CurveReverseS01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1505,
+    "name": "DungeonParts_2x1_CurveReverseS01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 1601,
+    "name": "DungeonParts_2x1_CurveU01",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1602,
+    "name": "DungeonParts_2x1_CurveU01_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1603,
+    "name": "DungeonParts_2x1_CurveU01_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 1,
+        "bottom": 0,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1604,
+    "name": "DungeonParts_2x1_CurveU01_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1605,
+    "name": "DungeonParts_2x1_CurveU01_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 0,
+        "right": 0,
+        "bottom": 1,
+        "left": 1
+      }
+    ],
+    "angle": 270
+  },
+  {
+    "id": 1801,
+    "name": "DungeonParts_2x1_Straight02",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": null
+  },
+  {
+    "id": 1802,
+    "name": "DungeonParts_2x1_Straight02_0",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 0
+  },
+  {
+    "id": 1803,
+    "name": "DungeonParts_2x1_Straight02_90",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 90
+  },
+  {
+    "id": 1804,
+    "name": "DungeonParts_2x1_Straight02_180",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      },
+      {
+        "x": -1,
+        "y": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 0,
+        "left": 1
+      }
+    ],
+    "angle": 180
+  },
+  {
+    "id": 1805,
+    "name": "DungeonParts_2x1_Straight02_270",
+    "blocks": [
+      {
+        "x": 0,
+        "y": 0,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      },
+      {
+        "x": 0,
+        "y": -1,
+        "top": 1,
+        "right": 0,
+        "bottom": 1,
+        "left": 0
+      }
+    ],
+    "angle": 270
+  }
+]

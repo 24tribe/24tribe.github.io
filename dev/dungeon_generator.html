@@ -51,8 +51,8 @@
         }
     }
 
-    const drawDungeonPart = (i, x, y, dungeonPart, backgroundColor) => {
-        dungeonPart.forEach((block) => {
+    const drawDungeonPart = (i, x, y, blocks, backgroundColor) => {
+        blocks.forEach((block) => {
             const startx = x + block.x*(blockSide+margin);
             const starty = y + block.y*(blockSide+margin);
             if (backgroundColor === undefined) {
@@ -69,7 +69,7 @@
             ctx.fillText(i.toString(), textx, texty, blockSide);
         });
 
-        dungeonPart.forEach((block) => {
+        blocks.forEach((block) => {
             const startx = x + block.x*(blockSide+margin);
             const starty = y + block.y*(blockSide+margin);
             drawEntrance(startx, starty, block);
@@ -151,20 +151,10 @@
         return (match !== null) ? {name: match[1], angle: (match[2] !== undefined ? +match[2] : null)} : null;
     };
 
-    const dungeonPieceIdToAssetName = (dungeonPieceId, dungeonPiecesMasterData) => {
-        for (const dungeonPiece of dungeonPiecesMasterData) {
-            if (dungeonPiece.id === dungeonPieceId) {
-                return splitAssetPath(dungeonPiece.asset_path);
-            }
-        }
-        return null;
-    };
-
-    const drawDungeonPieces = (x, y, dungeonPieces, dungeonPiecesMasterData) => {
+    const drawDungeonPieces = (x, y, dungeonPieces, dungeonData) => {
         let i = 0;
         for (const dungeonPiece of dungeonPieces) {
-            let asset = dungeonPieceIdToAssetName(dungeonPiece.dungeonPieceId, dungeonPiecesMasterData);
-            let dungeonPart = dungeonParts[asset.name];
+            let dungeonPart = getDungeonPartFromId(dungeonPiece.dungeonPieceId, dungeonData);
 
             if (dungeonPart) {
                 const dungeonPieceX = (dungeonPiece.x ? dungeonPiece.x : 0);
@@ -172,18 +162,14 @@
                 const dungeonPartX = x + dungeonPieceX*(blockSide + margin);
                 const dungeonPartY = y + dungeonPieceY*(blockSide + margin);
 
-                if (asset.angle !== null) {
-                    dungeonPart = rotateDungeonPart(dungeonPart, asset.angle);
-                }
-
                 let backgroundColor = "#FFFFFF";
-                if (asset.name == "DungeonParts_Start") {
+                if (dungeonPart.name == "DungeonParts_Start") {
                     backgroundColor = "#FF0000";
-                } else if (asset.name == "DungeonParts_Boss") {
+                } else if (dungeonPart.name == "DungeonParts_Boss") {
                     backgroundColor = "#00FF00";
                 }
 
-                drawDungeonPart(i, dungeonPartX, dungeonPartY, dungeonPart, backgroundColor);
+                drawDungeonPart(i, dungeonPartX, dungeonPartY, dungeonPart.blocks, backgroundColor);
             } else {
                 console.log("WARNING: " + asset.name + " not found in dungeonParts!!!");
             }
@@ -273,7 +259,7 @@
         return visited;
     };
 
-    const draw = (dungeonPiecesMasterData, dungeonPieces, centerX, centerY) => {
+    const draw = (dungeonData, dungeonPieces, centerX, centerY) => {
         clearBackground();
 
         ctx.fillStyle = "#FFFFFF";
@@ -289,7 +275,7 @@
             ctx.fillText(s, x, y);
         }
 
-        drawDungeonPieces(centerX, centerY, dungeonPieces, dungeonPiecesMasterData);
+        drawDungeonPieces(centerX, centerY, dungeonPieces, dungeonData);
     };
 
     const myClone = (obj) => {
@@ -319,15 +305,15 @@
         }
     };
 
-    const splitDungeonParts = (allDungeonParts) => {
+    const splitDungeonParts = (dungeonData) => {
         let startPart = null;
         let endPart = null;
         let middleParts = new Array();
 
-        for (const dungeonPart of allDungeonParts) {
-            if (dungeonPart.id == 100101) {
+        for (const dungeonPart of dungeonData) {
+            if (dungeonPart.id == 101) {
                 startPart = dungeonPart;
-            } else if (dungeonPart.id == 100201) {
+            } else if (dungeonPart.id == 201) {
                 endPart = dungeonPart;
             } else {
                 middleParts.push(dungeonPart);
@@ -424,8 +410,8 @@
         return possibleParts;
     };
 
-    const genDungeon2 = (allDungeonParts) => {
-        const [startPart, middleParts, endPart] = splitDungeonParts(allDungeonParts);
+    const genDungeon2 = (dungeonData) => {
+        const [startPart, middleParts, endPart] = splitDungeonParts(dungeonData);
 
         console.log("startPart: ", startPart);
         console.log("endPart: ", endPart);
@@ -473,51 +459,41 @@
         return result;
     };
 
-    const parseMasterData = (dungeonPiecesMasterData) => {
-        const allDungeonParts = new Array();
-        for (const dungeonPart of dungeonPiecesMasterData) {
-            let asset = splitAssetPath(dungeonPart.asset_path);
-            if (asset !== null) {
-                let blocks = dungeonParts[asset.name];
-                if (asset.angle !== null) {
-                    blocks = rotateDungeonPart(blocks, asset.angle)
-                }
-                allDungeonParts.push({
-                    blocks: blocks,
-                    id: dungeonPart.id,
-                    angle: asset.angle,
-                })
+    const getDungeonPartFromId = (dungeonPieceId, dungeonData) => {
+        for (const dungeonPart of dungeonData) {
+            if (dungeonPart.id === dungeonPieceId) {
+                return dungeonPart;
             }
         }
-        return allDungeonParts;
-    }
+
+        return null;
+    };
 
     const main = async () => {
-        const dungeonPiecesMasterData = await getJson("dungeon_piece.json");
-        const allDungeonParts = parseMasterData(dungeonPiecesMasterData);
-        let dungeonPieces = genDungeon2(allDungeonParts);
+        const dungeonData = await getJson("dungeonData.json");
+        let dungeonPieces = genDungeon2(dungeonData);
         console.log("dungeonPieces: ", dungeonPieces);
         let dungeonPiecesCenterX = 450;
         let dungeonPiecesCenterY = 300;
 
-        draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+        draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
 
         document.body.addEventListener("keyup", (ev) => {
             if (ev.key == "a") {
                 dungeonPiecesCenterX -= moveDist
-                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+                draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "d") {
                 dungeonPiecesCenterX += moveDist
-                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+                draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "w") {
                 dungeonPiecesCenterY -= moveDist
-                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+                draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "s") {
                 dungeonPiecesCenterY += moveDist
-                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+                draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "r") {
-                dungeonPieces = genDungeon2(allDungeonParts);
-                draw(dungeonPiecesMasterData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
+                dungeonPieces = genDungeon2(dungeonData);
+                draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             }
         });
     };
