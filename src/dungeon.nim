@@ -44,10 +44,10 @@ type DungeonPart = ref object
 type DungeonData = seq[DungeonPart]
 
 
-proc getRandomInt*(max: int): int {.exportc.} = rand(0 ..< max)
+proc getRandomInt(max: int): int = rand(0 ..< max)
 
 
-proc createGrid*(gridWidth: int, gridHeight: int): Grid {.exportc.} =
+proc createGrid(gridWidth: int, gridHeight: int): Grid =
     for y in 0 ..< gridHeight:
         var row = newSeq[cstring]()
 
@@ -88,7 +88,7 @@ proc setIfValidPos(grid: var Grid, x: int, y: int, val: cstring) =
         grid[y][x] = val
 
 
-proc getPath*(gridWidth: int, gridHeight: int): Path {.exportc} =
+proc getPath(gridWidth: int, gridHeight: int): Path =
     var grid = createGrid(gridWidth, gridHeight)
 
     let objX = getRandomInt(gridWidth)
@@ -148,7 +148,7 @@ proc splitDungeonParts(dungeonData: DungeonData): (DungeonPart, seq[DungeonPart]
     result = (startPart, middleParts, endPart)
 
 
-proc updateEntrances*(entrances: var Entrances, nodePos: Position, otherNodePos: Position) {.exportc.} =
+proc updateEntrances(entrances: var Entrances, nodePos: Position, otherNodePos: Position) =
     let diffX = nodePos[0] - otherNodePos[0]
     let diffY = nodePos[1] - otherNodePos[1]
 
@@ -163,7 +163,7 @@ proc updateEntrances*(entrances: var Entrances, nodePos: Position, otherNodePos:
         entrances.top = 1;
 
 
-proc getMiddleNodesEntrances*(path: Path): seq[Entrances] {.exportc} =
+proc getMiddleNodesEntrances(path: Path): seq[Entrances] =
     for i in 1 ..< path.len - 1:
         var entrances = Entrances(top: 0, right: 0, bottom: 0, left: 0)
         let nodePos = path[i]
@@ -176,7 +176,7 @@ proc getMiddleNodesEntrances*(path: Path): seq[Entrances] {.exportc} =
         result.add(entrances)
 
 
-proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart {.exportc.} =
+proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart =
     new(result)
     result.id = part.id
     result.name = part.name
@@ -189,7 +189,7 @@ proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart {.exportc.} 
 
 proc dungeonPartToDungeonPiece(
     dungeonPart: DungeonPart, cityId: int, nodePos: Position
-): DungeonPiece {.exportc.} =
+): DungeonPiece =
     let absoluteDungeonPart = copyAndApplyPos(dungeonPart, nodePos)
     result = DungeonPiece(
         x: absoluteDungeonPart.blocks[0].x,
@@ -208,7 +208,7 @@ proc equalEntrances(entrances1: Entrances, entrances2: Entrances): bool =
 
 proc partCanFit(
     i: int, part: DungeonPart, path: Path, middleNodesEntrances: seq[Entrances]
-): bool {.exportc.} =
+): bool =
     if i + part.blocks.len >= path.len:
         return false
 
