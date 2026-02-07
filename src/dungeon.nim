@@ -178,3 +178,14 @@ proc dungeonPartToDungeonPiece(dungeonPart: DungeonPart, cityId: int): DungeonPi
         rotate: dungeonPart.angle,
         dungeonPieceId: cityId*10000 + dungeonPart.id
     )
+
+
+proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart {.exportc.} =
+    new(result)
+    result.id = part.id
+    result.name = part.name
+    result.angle = part.angle
+    
+    for oldBlock in part.blocks:
+        let newBlock = Block(x: oldBlock.x + pos[0], y: oldBlock.y + pos[1])
+        result.blocks.add(newBlock)

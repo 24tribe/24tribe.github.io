@@ -138,15 +138,6 @@
         return JSON.parse(JSON.stringify(obj));
     };
 
-    const copyAndApplyPos = (part, pos) => {
-        let partCopy = myClone(part);
-        for (const block of partCopy.blocks) {
-            block.x += pos.x;
-            block.y += pos.y;
-        }
-        return partCopy
-    };
-
     const equalEntrances = (entrances1, entrances2) => {
         return entrances1.top === entrances2.top
                && entrances1.right === entrances2.right
@@ -219,7 +210,7 @@
 
         const result = new Array();
         result.push(dungeonPartToDungeonPiece(
-            copyAndApplyPos(startPart, {x: startNode[0], y: startNode[1]}),
+            copyAndApplyPos(startPart, startNode),
             cityId
         ));
 
@@ -239,19 +230,16 @@
 
             console.log("foundPart: ", foundPart);
 
-            const [x, y] = path[i]
-
             result.push(dungeonPartToDungeonPiece(
-                copyAndApplyPos(foundPart, {x: x, y: y}),
+                copyAndApplyPos(foundPart, path[i]),
                 cityId
             ))
 
             i += foundPart.blocks.length;
         }
 
-        const [endX, endY] = endNode;
         result.push(dungeonPartToDungeonPiece(
-            copyAndApplyPos(endPart, {x: endX, y: endY}),
+            copyAndApplyPos(endPart, endNode),
             cityId
         ));
         return result;
