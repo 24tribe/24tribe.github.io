@@ -408,7 +408,7 @@
     const dungeonPartToGame = (dungeonPart) => {
         return {
             "x": dungeonPart.blocks[0].x, "y": dungeonPart.blocks[0].y,
-            "rotation": (dungeonPart.angle !== null ? dungeonPart.angle : 0 ),
+            "rotate": (dungeonPart.angle !== null ? dungeonPart.angle : 0 ),
             "dungeonPieceId": dungeonPart.id
         }
     };
