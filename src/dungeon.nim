@@ -8,6 +8,7 @@ const objectiveNode = "O"
 
 type Grid = seq[seq[cstring]]
 type Position = array[2, int]
+type Path = seq[Position]
 
 
 proc getRandomInt*(max: int): int {.exportc.} = rand(0 ..< max)
@@ -32,13 +33,13 @@ proc getNeighbourPositions(x: int, y: int): seq[Position] =
     ]
 
 
-proc validPosition*(grid: Grid, x: int, y: int): bool {.exportc.} =
+proc validPosition(grid: Grid, x: int, y: int): bool =
     let gridHeight = grid.len
     let gridWidth = grid[0].len
     result = (x in 0 ..< gridWidth) and (y in 0 ..< gridHeight)
 
 
-proc getPossibleNextPositions*(x: int, y: int, grid: Grid): seq[Position] {.exportc.} =
+proc getPossibleNextPositions(x: int, y: int, grid: Grid): seq[Position] =
     for pos in getNeighbourPositions(x, y):
         let neightbourX = pos[0]
         let neightbourY = pos[1]
@@ -47,3 +48,52 @@ proc getPossibleNextPositions*(x: int, y: int, grid: Grid): seq[Position] {.expo
             let node = grid[neightbourY][neightbourX]
             if node == nonVisitedNode or node == objectiveNode:
                 result.add(pos)
+
+
+proc setIfValidPos(grid: var Grid, x: int, y: int, val: cstring) =
+    if validPosition(grid, x, y):
+        grid[y][x] = val
+
+
+proc getPath*(gridWidth: int, gridHeight: int): Path {.exportc} =
+    var grid = createGrid(gridWidth, gridHeight)
+
+    let objX = getRandomInt(gridWidth)
+    let objY = 0
+    let startX = getRandomInt(gridWidth)
+    let startY = gridHeight - 1;
+
+    setIfValidPos(grid, objX - 1, objY, visitedNode)
+    setIfValidPos(grid, objX + 1, objY, visitedNode)
+    grid[objY][objX] = objectiveNode
+
+    grid[startY][startX] = visitedNode
+    setIfValidPos(grid, startX - 1, startY, visitedNode)
+    setIfValidPos(grid, startX + 1, startY, visitedNode)
+
+    result.add([startX, startY])
+
+    var x = startX
+    var y = startY
+
+    while grid[y][x] != objectiveNode:
+        let nextPositions = getPossibleNextPositions(x, y, grid)
+
+        if nextPositions.len == 0:
+            discard result.pop()
+            let lastPos = result[result.len - 1]
+            x = lastPos[0]
+            y = lastPos[1]
+            continue
+
+        let nextPos = nextPositions[getRandomInt(nextPositions.len)]
+        let nextPosX = nextPos[0]
+        let nextPosY = nextPos[1]
+
+        if grid[nextPosY][nextPosX] != objectiveNode:
+            grid[nextPosY][nextPosX] = visitedNode
+
+        x = nextPosX
+        y = nextPosY
+
+        result.add([x, y])

@@ -115,58 +115,6 @@
     const visitedNode = "V";
     const objectiveNode = "O"
 
-    const getPath = (gridWidth, gridHeight) => {
-        let grid = createGrid(gridWidth, gridHeight);
-        
-        let objX = getRandomInt(gridWidth);
-        let startX = getRandomInt(gridWidth);
-        if (validPosition(grid, objX - 1, 0)) {
-            grid[0][objX - 1] = visitedNode;
-        }
-        if (validPosition(grid, objX + 1, 0)) {
-            grid[0][objX + 1] = visitedNode;
-        }
-        grid[0][objX] = objectiveNode;
-
-        const startY = gridHeight - 1;
-
-        const visited = [[startX, startY]];
-        grid[startY][startX] = visitedNode;
-
-        if (validPosition(grid, startX - 1, startY)) {
-            grid[startY][startX - 1] = visitedNode;
-        }
-
-        if (validPosition(grid, startX - 1, startY)) {
-            grid[startY][startX + 1] = visitedNode;
-        }
-
-        let x = startX;
-        let y = startY;
-
-        while (grid[y][x] !== objectiveNode) {
-            const nextPositions = getPossibleNextPositions(x, y, grid);
-            if (nextPositions.length == 0) {
-                visited.pop();
-                const [lastNodeX, lastNodeY] = visited[visited.length - 1];
-                x = lastNodeX;
-                y = lastNodeY;
-                continue;
-            }
-            const [nextX, nextY] = nextPositions[getRandomInt(nextPositions.length)];
-
-            if (grid[nextY][nextX] !== objectiveNode) {
-                grid[nextY][nextX] = visitedNode;
-            }
-
-            x = nextX;
-            y = nextY;
-            visited.push([x, y]);
-        }
-
-        return visited;
-    };
-
     const draw = (dungeonData, dungeonPieces, centerX, centerY) => {
         clearBackground();
 
