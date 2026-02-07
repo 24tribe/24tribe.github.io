@@ -5,6 +5,7 @@
     }
 </style></head><body>
 <canvas id="canvas" width="1160px" height="580px"></canvas>
+<script src="dungeon.js"></script>
 <script>
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
@@ -153,8 +154,8 @@
     const getPath = (gridWidth, gridHeight) => {
         let grid = createGrid(gridWidth, gridHeight);
         
-        let objX = getRandomInt(0, gridWidth);
-        let startX = getRandomInt(0, gridWidth);
+        let objX = getRandomInt(gridWidth);
+        let startX = getRandomInt(gridWidth);
         grid[0][objX] = objectiveNode;
         grid[0][objX-1] = visitedNode;
         grid[0][objX+1] = visitedNode;
@@ -177,7 +178,7 @@
                 y = lastNodeY;
                 continue;
             }
-            const [nextX, nextY] = nextPositions[getRandomInt(0, nextPositions.length)];
+            const [nextX, nextY] = nextPositions[getRandomInt(nextPositions.length)];
 
             if (grid[nextY][nextX] !== objectiveNode) {
                 grid[nextY][nextX] = visitedNode;
@@ -212,12 +213,6 @@
 
     const myClone = (obj) => {
         return JSON.parse(JSON.stringify(obj));
-    };
-
-    const getRandomInt = (min, max) => {
-        const minCeiled = Math.ceil(min);
-        const maxFloored = Math.floor(max);
-        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
     };
 
     const copyAndApplyPos = (part, pos) => {
@@ -378,7 +373,7 @@
                 return result;
             }
 
-            const foundPart = possibleParts[getRandomInt(0, possibleParts.length)];
+            const foundPart = possibleParts[getRandomInt(possibleParts.length)];
 
             console.log("foundPart: ", foundPart);
 
