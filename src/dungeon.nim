@@ -1,4 +1,5 @@
 import std/random
+import std/options
 
 randomize()
 
@@ -185,7 +186,48 @@ proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart {.exportc.} 
     result.id = part.id
     result.name = part.name
     result.angle = part.angle
-    
+
     for oldBlock in part.blocks:
         let newBlock = Block(x: oldBlock.x + pos[0], y: oldBlock.y + pos[1])
         result.blocks.add(newBlock)
+
+
+proc equalEntrances(entrances1: Entrances, entrances2: Entrances): bool =
+    result = entrances1.top == entrances2.top and
+             entrances1.right == entrances2.right and
+             entrances1.bottom == entrances2.bottom and
+             entrances1.left == entrances2.left
+
+
+proc partCanFit(
+    i: int, part: DungeonPart, path: Path, middleNodesEntrances: seq[Entrances]
+): bool {.exportc.} =
+    if i + part.blocks.len >= path.len:
+        return false
+
+    var j = 0
+    var lastBlock: Option[Block] = none(Block)
+
+    for bloc in part.blocks:
+        let entrances = middleNodesEntrances[i - 1 + j]
+        let blockEntrances = Entrances(
+            top: bloc.top, right: bloc.right,
+            bottom: bloc.bottom, left: bloc.left
+        )
+
+        if not equalEntrances(entrances, blockEntrances):
+            return false
+
+        if lastBlock.isSome():
+            let lastNodePos = path[i + j - 1]
+            let nodePos = path[i + j]
+            let diffX = nodePos[0] - lastNodePos[0]
+            let diffY = nodePos[1] - lastNodePos[1]
+
+            if (bloc.x - lastBlock.get().x != diffX) or (bloc.y - lastBlock.get().y != diffY):
+                return false
+
+        lastBlock = some(bloc)
+        j += 1
+
+    return true

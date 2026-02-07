@@ -138,45 +138,6 @@
         return JSON.parse(JSON.stringify(obj));
     };
 
-    const equalEntrances = (entrances1, entrances2) => {
-        return entrances1.top === entrances2.top
-               && entrances1.right === entrances2.right
-               && entrances1.bottom === entrances2.bottom
-               && entrances1.left === entrances2.left;
-    };
-
-    const partCanFit = (i, part, path, middleNodesEntrances) => {
-        if (i + part.blocks.length >= path.length) {
-            return false;
-        }
-
-        let j = 0;
-        let lastBlock = null;
-        for (const block of part.blocks) {
-            const entrances = middleNodesEntrances[i - 1 + j];
-            const blockEntrances = {
-                top: block.top, right: block.right,
-                bottom: block.bottom, left: block.left
-            };
-            if (!equalEntrances(entrances, blockEntrances)) {
-                return false;
-            }
-            if (lastBlock !== null) {
-                const lastNode = path[i + j - 1];
-                const node = path[i + j];
-                const diffX = node[0] - lastNode[0]
-                const diffY = node[1] - lastNode[1];
-                if ((block.x - lastBlock.x !== diffX) || (block.y - lastBlock.y !== diffY)) {
-                    return false;
-                }
-            }
-            lastBlock = block;
-            j += 1;
-        }
-
-        return true;
-    };
-
     const getPossibleParts = (middleParts, i, path, middleNodesEntrances) => {
         const possibleParts = [];
         for (const part of middleParts) {
