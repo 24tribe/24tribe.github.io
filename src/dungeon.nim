@@ -22,6 +22,12 @@ type Block = object
     bottom: int
     left: int
 
+type Entrances = object
+    top: int
+    right: int
+    bottom: int
+    left: int
+
 type DungeonPart = ref object
     id: int
     name: cstring
@@ -129,3 +135,18 @@ proc splitDungeonParts(dungeonData: seq[DungeonPart]): DungeonDataSplitResult {.
             result.endPart = dungeonPart
         else:
             result.middleParts.add(dungeonPart)
+
+
+proc updateEntrances*(entrances: var Entrances, nodePos: Position, otherNodePos: Position) {.exportc.} =
+    let diffX = nodePos[0] - otherNodePos[0]
+    let diffY = nodePos[1] - otherNodePos[1]
+
+    if diffX == 1:
+        entrances.right = 1
+    elif diffX == -1:
+        entrances.left = 1
+
+    if diffY == 1:
+        entrances.bottom = 1
+    elif diffY == -1:
+        entrances.top = 1;

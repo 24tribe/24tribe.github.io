@@ -194,26 +194,6 @@
         return true;
     };
 
-    const updateEntrances = (entrances, node, otherNode) => {
-        const [nodeX, nodeY] = node;
-        const [otherNodeX, otherNodeY] = otherNode;
-
-        const diffX = nodeX - otherNodeX;
-        const diffY = nodeY - otherNodeY;
-
-        if (diffX == 1) {
-            entrances.right = 1;
-        } else if (diffX == -1) {
-            entrances.left = 1;
-        }
-
-        if (diffY == 1) {
-            entrances.bottom = 1;
-        } else if (diffY == -1) {
-            entrances.top = 1;
-        }
-    };
-
     const getMiddleNodesEntrances = (path) => {
         const middleNodesEntrances = new Array();
 
