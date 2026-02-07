@@ -196,11 +196,11 @@
     const visitedNode = "V";
     const objectiveNode = "O"
 
-    const createGrid = (gridSize) => {
+    const createGrid = (gridWidth, gridHeight) => {
         const grid = [];
-        for (let y = 0; y < gridSize; ++y) {
+        for (let y = 0; y < gridHeight; ++y) {
             grid[y] = [];
-            for (let x = 0; x < gridSize; ++x) {
+            for (let x = 0; x < gridWidth; ++x) {
                 grid[y][x] = nonVisitedNode
             }
         }
@@ -232,15 +232,15 @@
         return result;
     };
 
-    const getPath = (gridSize) => {
-        let grid = createGrid(gridSize);
+    const getPath = (gridWidth, gridHeight) => {
+        let grid = createGrid(gridWidth, gridHeight);
         
-        let objX = getRandomInt(0, gridSize);
-        let startX = getRandomInt(0, gridSize);
+        let objX = getRandomInt(0, gridWidth);
+        let startX = getRandomInt(0, gridWidth);
         grid[0][objX] = objectiveNode;
         grid[0][objX-1] = visitedNode;
         grid[0][objX+1] = visitedNode;
-        const startY = gridSize - 1;
+        const startY = gridHeight - 1;
 
         const visited = [[startX, startY]];
         grid[startY][startX-1] = visitedNode;
@@ -547,13 +547,14 @@
     };
 
     const genDungeon2 = (allDungeonParts) => {
-        const gridSize = 5;
         const [startPart, middleParts, endPart] = splitDungeonParts(allDungeonParts);
 
         console.log("startPart: ", startPart);
         console.log("endPart: ", endPart);
 
-        const path = getPath(gridSize);
+        const gridWidth = 3;
+        const gridHeight = 6;
+        const path = getPath(gridWidth, gridHeight);
         console.log("path", path);
         const middleNodesEntrances = getMiddleNodesEntrances(path);
         console.log("middleNodesEntrances", middleNodesEntrances);
