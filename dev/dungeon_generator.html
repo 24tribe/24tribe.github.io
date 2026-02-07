@@ -147,14 +147,6 @@
         return partCopy
     };
 
-    const dungeonPartToGame = (dungeonPart, cityId) => {
-        return {
-            "x": dungeonPart.blocks[0].x, "y": dungeonPart.blocks[0].y,
-            "rotate": (dungeonPart.angle !== null ? dungeonPart.angle : 0 ),
-            "dungeonPieceId": cityId*10000 + dungeonPart.id
-        };
-    };
-
     const equalEntrances = (entrances1, entrances2) => {
         return entrances1.top === entrances2.top
                && entrances1.right === entrances2.right
@@ -226,7 +218,7 @@
         console.log("endNode: ", endNode);
 
         const result = new Array();
-        result.push(dungeonPartToGame(
+        result.push(dungeonPartToDungeonPiece(
             copyAndApplyPos(startPart, {x: startNode[0], y: startNode[1]}),
             cityId
         ));
@@ -249,7 +241,7 @@
 
             const [x, y] = path[i]
 
-            result.push(dungeonPartToGame(
+            result.push(dungeonPartToDungeonPiece(
                 copyAndApplyPos(foundPart, {x: x, y: y}),
                 cityId
             ))
@@ -258,7 +250,7 @@
         }
 
         const [endX, endY] = endNode;
-        result.push(dungeonPartToGame(
+        result.push(dungeonPartToDungeonPiece(
             copyAndApplyPos(endPart, {x: endX, y: endY}),
             cityId
         ));

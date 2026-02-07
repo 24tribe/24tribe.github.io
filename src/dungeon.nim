@@ -14,6 +14,12 @@ type DungeonPartId = enum
     startDungeonPartId = 101,
     endDungeonPartId = 201
 
+type DungeonPiece = object
+    x: int
+    y: int
+    rotate: int
+    dungeonPieceId: int
+
 type Block = object
     x: int
     y: int
@@ -163,3 +169,12 @@ proc getMiddleNodesEntrances*(path: Path): seq[Entrances] {.exportc} =
         updateEntrances(entrances, nextNodePos, nodePos)
 
         result.add(entrances)
+
+
+proc dungeonPartToDungeonPiece(dungeonPart: DungeonPart, cityId: int): DungeonPiece {.exportc.} =
+    result = DungeonPiece(
+        x: dungeonPart.blocks[0].x,
+        y: dungeonPart.blocks[0].y,
+        rotate: dungeonPart.angle,
+        dungeonPieceId: cityId*10000 + dungeonPart.id
+    )
