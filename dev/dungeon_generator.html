@@ -85,7 +85,6 @@
     const drawDungeonPieces = (x, y, dungeonPieces, dungeonData) => {
         let i = 0;
         for (const dungeonPiece of dungeonPieces) {
-            console.log(dungeonPiece.dungeonPieceId)
             const idWithoutCity = dungeonPiece.dungeonPieceId % 10000
             let dungeonPart = getDungeonPartFromId(idWithoutCity, dungeonData);
 
@@ -136,74 +135,6 @@
 
     const myClone = (obj) => {
         return JSON.parse(JSON.stringify(obj));
-    };
-
-    const getPossibleParts = (middleParts, i, path, middleNodesEntrances) => {
-        const possibleParts = [];
-        for (const part of middleParts) {
-            if (partCanFit(i, part, path, middleNodesEntrances)) {
-                possibleParts.push(part);
-            }
-        }
-        return possibleParts;
-    };
-
-    const genDungeon2 = (dungeonData, cityId) => {
-        const splittedDungeonParts = splitDungeonParts(dungeonData)
-        const startPart = splittedDungeonParts.startPart;
-        const middleParts = splittedDungeonParts.middleParts;
-        const endPart = splittedDungeonParts.endPart;
-
-        console.log("startPart: ", startPart);
-        console.log("endPart: ", endPart);
-
-        const gridWidth = 3;
-        const gridHeight = 6;
-        const path = getPath(gridWidth, gridHeight);
-        console.log("path", path);
-        const middleNodesEntrances = getMiddleNodesEntrances(path);
-        console.log("middleNodesEntrances", middleNodesEntrances);
-
-        const startNode = path[0];
-        const endNode = path[path.length - 1];
-        console.log("startNode: ", startNode);
-        console.log("endNode: ", endNode);
-
-        const result = new Array();
-        result.push(dungeonPartToDungeonPiece(
-            copyAndApplyPos(startPart, startNode),
-            cityId
-        ));
-
-        let i = 1;
-
-        while (i < path.length - 1) {
-            console.log("i:", i);
-            
-            const possibleParts = getPossibleParts(middleParts, i, path, middleNodesEntrances);
-
-            if (possibleParts.length === 0) {
-                console.log("error: couldn't get a part that fit");
-                return result;
-            }
-
-            const foundPart = possibleParts[getRandomInt(possibleParts.length)];
-
-            console.log("foundPart: ", foundPart);
-
-            result.push(dungeonPartToDungeonPiece(
-                copyAndApplyPos(foundPart, path[i]),
-                cityId
-            ))
-
-            i += foundPart.blocks.length;
-        }
-
-        result.push(dungeonPartToDungeonPiece(
-            copyAndApplyPos(endPart, endNode),
-            cityId
-        ));
-        return result;
     };
 
     const getDungeonPartFromId = (dungeonPieceId, dungeonData) => {

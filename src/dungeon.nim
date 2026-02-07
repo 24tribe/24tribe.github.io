@@ -41,10 +41,8 @@ type DungeonPart = ref object
     blocks: seq[Block]
     angle: int
 
-type DungeonDataSplitResult = object
-    startPart: DungeonPart
-    endPart: DungeonPart
-    middleParts: seq[DungeonPart]
+type DungeonData = seq[DungeonPart]
+
 
 proc getRandomInt*(max: int): int {.exportc.} = rand(0 ..< max)
 
@@ -134,14 +132,20 @@ proc getPath*(gridWidth: int, gridHeight: int): Path {.exportc} =
         result.add([x, y])
 
 
-proc splitDungeonParts(dungeonData: seq[DungeonPart]): DungeonDataSplitResult {.exportc.} =
+proc splitDungeonParts(dungeonData: DungeonData): (DungeonPart, seq[DungeonPart], DungeonPart) =
+    var startPart: DungeonPart = nil
+    var middleParts = newSeq[DungeonPart]()
+    var endPart: DungeonPart = nil
+
     for dungeonpart in dungeonData:
         if dungeonPart.id == startDungeonPartId.int:
-            result.startPart = dungeonPart
+            startPart = dungeonPart
         elif dungeonPart.id == endDungeonPartId.int:
-            result.endPart = dungeonPart
+            endPart = dungeonPart
         else:
-            result.middleParts.add(dungeonPart)
+            middleParts.add(dungeonPart)
+
+    result = (startPart, middleParts, endPart)
 
 
 proc updateEntrances*(entrances: var Entrances, nodePos: Position, otherNodePos: Position) {.exportc.} =
@@ -172,15 +176,6 @@ proc getMiddleNodesEntrances*(path: Path): seq[Entrances] {.exportc} =
         result.add(entrances)
 
 
-proc dungeonPartToDungeonPiece(dungeonPart: DungeonPart, cityId: int): DungeonPiece {.exportc.} =
-    result = DungeonPiece(
-        x: dungeonPart.blocks[0].x,
-        y: dungeonPart.blocks[0].y,
-        rotate: dungeonPart.angle,
-        dungeonPieceId: cityId*10000 + dungeonPart.id
-    )
-
-
 proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart {.exportc.} =
     new(result)
     result.id = part.id
@@ -190,6 +185,18 @@ proc copyAndApplyPos(part: DungeonPart, pos: Position): DungeonPart {.exportc.} 
     for oldBlock in part.blocks:
         let newBlock = Block(x: oldBlock.x + pos[0], y: oldBlock.y + pos[1])
         result.blocks.add(newBlock)
+
+
+proc dungeonPartToDungeonPiece(
+    dungeonPart: DungeonPart, cityId: int, nodePos: Position
+): DungeonPiece {.exportc.} =
+    let absoluteDungeonPart = copyAndApplyPos(dungeonPart, nodePos)
+    result = DungeonPiece(
+        x: absoluteDungeonPart.blocks[0].x,
+        y: absoluteDungeonPart.blocks[0].y,
+        rotate: absoluteDungeonPart.angle,
+        dungeonPieceId: cityId*10000 + absoluteDungeonPart.id
+    )
 
 
 proc equalEntrances(entrances1: Entrances, entrances2: Entrances): bool =
@@ -231,3 +238,43 @@ proc partCanFit(
         j += 1
 
     return true
+
+
+proc getPossibleParts(
+    middleParts: seq[DungeonPart], i: int, path: Path, middleNodesEntrances: seq[Entrances]
+): seq[DungeonPart] =
+
+    for part in middleParts:
+        if partCanFit(i, part, path, middleNodesEntrances):
+            result.add(part)
+
+
+proc genDungeon2(dungeonData: DungeonData, cityId: int): seq[DungeonPiece] {.exportc.} =
+    let (startPart, middleParts, endPart) = splitDungeonParts(dungeonData)
+
+    const gridWidth = 3
+    const gridHeight = 6
+
+    let path = getPath(gridWidth, gridHeight)
+    let middleNodesEntrances = getMiddleNodesEntrances(path)
+
+    let startNodePos = path[0]
+    let endNodePos = path[path.len - 1]
+
+    result.add(dungeonPartToDungeonPiece(startPart, cityId, startNodePos))
+
+    var i = 1
+
+    while i < path.len - 1:
+        let possibleParts = getPossibleParts(middleParts, i, path, middleNodesEntrances)
+
+        if possibleParts.len == 0:
+            raise newException(ValueError, "error: couldn't get a part that fit")
+
+        let foundPart = possibleParts[getRandomInt(possibleParts.len)]
+
+        result.add(dungeonPartToDungeonPiece(foundPart, cityId, path[i]))
+
+        i += foundPart.blocks.len
+
+    result.add(dungeonPartToDungeonPiece(endPart, cityId, endNodePos))
