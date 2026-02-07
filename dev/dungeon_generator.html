@@ -115,15 +115,6 @@
     const visitedNode = "V";
     const objectiveNode = "O"
 
-    const getNeighbourPositions = (x, y) => {
-        return [
-            [x - 1, y],
-            [x + 1, y],
-            [x, y + 1],
-            [x, y - 1],
-        ];
-    };
-
     const getPossibleNextPositions = (x, y, grid) => {
         const result = new Array();
 
