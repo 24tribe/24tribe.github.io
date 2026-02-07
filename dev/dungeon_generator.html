@@ -76,79 +76,9 @@
         });
     };
 
-    const dungeonParts = {
-        DungeonParts_Start: [{x: 0, y: 0, top: 1, right: 0, bottom: 0, left: 0}],
-        DungeonParts_Boss: [{x: 0, y: 0, top: 0, right: 0, bottom: 1, left: 0}],
-        DungeonParts_CurveL01: [{x: 0, y: 0, top: 1, right: 1, bottom: 0, left: 0}],
-        DungeonParts_Straight01: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
-        DungeonParts_Straight02: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
-        DungeonParts_Straight03: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
-        DungeonParts_Straight04: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
-        DungeonParts_Straight05: [{x: 0, y: 0, top: 1, right: 0, bottom: 1, left: 0}],
-        DungeonParts_2x1_CurveL01: [
-            {x: 0, y: 0, top: 1, right: 1, bottom: 0, left: 0},
-            {x: 1, y: 0, top: 0, right: 1, bottom: 0, left: 1}
-        ],
-        DungeonParts_2x1_CurveReverseL01: [
-            {x: 0, y: 0, top: 0, right: 1, bottom: 0, left: 1},
-            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 1}
-        ],
-        DungeonParts_2x1_CurveReverseL02: [
-            {x: 0, y: 0, top: 0, right: 1, bottom: 0, left: 1},
-            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 1}
-        ],
-        DungeonParts_2x1_CurveS01: [
-            {x: 0, y: 0, top: 1, right: 1, bottom: 0, left: 0},
-            {x: 1, y: 0, top: 0, right: 0, bottom: 1, left: 1}
-        ],
-        DungeonParts_2x1_CurveReverseS01: [
-            {x: 0, y: 0, top: 0, right: 1, bottom: 1, left: 0},
-            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 1}
-        ],
-        DungeonParts_2x1_CurveU01: [
-            {x: 0, y: 0, top: 1, right: 1, bottom: 0, left: 0},
-            {x: 1, y: 0, top: 1, right: 0, bottom: 0, left: 1}
-        ],
-        DungeonParts_2x1_Straight02: [
-            {x: 0, y: 0, top: 0, right: 1, bottom: 0, left: 1},
-            {x: 1, y: 0, top: 0, right: 1, bottom: 0, left: 1}
-        ],
-    };
-
-    /* dungeonPart rotates counterclockwise but the entrances clockwise */
-    const rotateDungeonPart = (dungeonPart, angle) => {
-        if (angle == 90) {
-            const result = new Array();
-            for (const block of dungeonPart) {
-                result.push({
-                    x: -(block.y),
-                    y: block.x,
-                    top: block.left,
-                    right: block.top,
-                    bottom: block.right,
-                    left: block.bottom,
-                })
-            }
-            return result;
-        }
-
-        let result = dungeonPart;
-
-        for (let i = 0; i < angle/90; ++i) {
-            result = rotateDungeonPart(result, 90);
-        }
-
-        return result;
-    };
-
     const getJson = async (url) => {
         const res = await fetch(url);
         return res.json();
-    };
-
-    const splitAssetPath = (assetPath) => {
-        const match = assetPath.match(dungeonPieceAssetPathPat);
-        return (match !== null) ? {name: match[1], angle: (match[2] !== undefined ? +match[2] : null)} : null;
     };
 
     const drawDungeonPieces = (x, y, dungeonPieces, dungeonData) => {
