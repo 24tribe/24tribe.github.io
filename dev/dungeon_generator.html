@@ -84,7 +84,9 @@
     const drawDungeonPieces = (x, y, dungeonPieces, dungeonData) => {
         let i = 0;
         for (const dungeonPiece of dungeonPieces) {
-            let dungeonPart = getDungeonPartFromId(dungeonPiece.dungeonPieceId, dungeonData);
+            console.log(dungeonPiece.dungeonPieceId)
+            const idWithoutCity = dungeonPiece.dungeonPieceId % 10000
+            let dungeonPart = getDungeonPartFromId(idWithoutCity, dungeonData);
 
             if (dungeonPart) {
                 const dungeonPieceX = (dungeonPiece.x ? dungeonPiece.x : 0);
@@ -101,7 +103,7 @@
 
                 drawDungeonPart(i, dungeonPartX, dungeonPartY, dungeonPart.blocks, backgroundColor);
             } else {
-                console.log("WARNING: " + asset.name + " not found in dungeonParts!!!");
+                console.log("WARNING: " + idWithoutCity + " not found in dungeonParts!!!");
             }
 
             i += 1;
@@ -227,12 +229,12 @@
         return partCopy
     };
 
-    const dungeonPartToGame = (dungeonPart) => {
+    const dungeonPartToGame = (dungeonPart, cityId) => {
         return {
             "x": dungeonPart.blocks[0].x, "y": dungeonPart.blocks[0].y,
             "rotate": (dungeonPart.angle !== null ? dungeonPart.angle : 0 ),
-            "dungeonPieceId": dungeonPart.id
-        }
+            "dungeonPieceId": cityId*10000 + dungeonPart.id
+        };
     };
 
     const splitDungeonParts = (dungeonData) => {
@@ -340,7 +342,7 @@
         return possibleParts;
     };
 
-    const genDungeon2 = (dungeonData) => {
+    const genDungeon2 = (dungeonData, cityId) => {
         const [startPart, middleParts, endPart] = splitDungeonParts(dungeonData);
 
         console.log("startPart: ", startPart);
@@ -359,7 +361,10 @@
         console.log("endNode: ", endNode);
 
         const result = new Array();
-        result.push(dungeonPartToGame(copyAndApplyPos(startPart, {x: startNode[0], y: startNode[1]})));
+        result.push(dungeonPartToGame(
+            copyAndApplyPos(startPart, {x: startNode[0], y: startNode[1]}),
+            cityId
+        ));
 
         let i = 1;
 
@@ -379,13 +384,19 @@
 
             const [x, y] = path[i]
 
-            result.push(dungeonPartToGame(copyAndApplyPos(foundPart, {x: x, y: y})))
-            
+            result.push(dungeonPartToGame(
+                copyAndApplyPos(foundPart, {x: x, y: y}),
+                cityId
+            ))
+
             i += foundPart.blocks.length;
         }
 
         const [endX, endY] = endNode;
-        result.push(dungeonPartToGame(copyAndApplyPos(endPart, {x: endX, y: endY})));
+        result.push(dungeonPartToGame(
+            copyAndApplyPos(endPart, {x: endX, y: endY}),
+            cityId
+        ));
         return result;
     };
 
@@ -401,7 +412,8 @@
 
     const main = async () => {
         const dungeonData = await getJson("dungeonData.json");
-        let dungeonPieces = genDungeon2(dungeonData);
+        const shinagawaId = 10;
+        let dungeonPieces = genDungeon2(dungeonData, shinagawaId);
         console.log("dungeonPieces: ", dungeonPieces);
         let dungeonPiecesCenterX = 450;
         let dungeonPiecesCenterY = 300;
@@ -422,7 +434,7 @@
                 dungeonPiecesCenterY += moveDist
                 draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             } else if (ev.key == "r") {
-                dungeonPieces = genDungeon2(dungeonData);
+                dungeonPieces = genDungeon2(dungeonData, shinagawaId);
                 draw(dungeonData, dungeonPieces, dungeonPiecesCenterX, dungeonPiecesCenterY);
             }
         });
