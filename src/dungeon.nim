@@ -10,6 +10,28 @@ type Grid = seq[seq[cstring]]
 type Position = array[2, int]
 type Path = seq[Position]
 
+type DungeonPartId = enum
+    startDungeonPartId = 101,
+    endDungeonPartId = 201
+
+type Block = object
+    x: int
+    y: int
+    top: int
+    right: int
+    bottom: int
+    left: int
+
+type DungeonPart = ref object
+    id: int
+    name: cstring
+    blocks: seq[Block]
+    angle: int
+
+type DungeonDataSplitResult = object
+    startPart: DungeonPart
+    endPart: DungeonPart
+    middleParts: seq[DungeonPart]
 
 proc getRandomInt*(max: int): int {.exportc.} = rand(0 ..< max)
 
@@ -97,3 +119,13 @@ proc getPath*(gridWidth: int, gridHeight: int): Path {.exportc} =
         y = nextPosY
 
         result.add([x, y])
+
+
+proc splitDungeonParts(dungeonData: seq[DungeonPart]): DungeonDataSplitResult {.exportc.} =
+    for dungeonpart in dungeonData:
+        if dungeonPart.id == startDungeonPartId.int:
+            result.startPart = dungeonPart
+        elif dungeonPart.id == endDungeonPartId.int:
+            result.endPart = dungeonPart
+        else:
+            result.middleParts.add(dungeonPart)

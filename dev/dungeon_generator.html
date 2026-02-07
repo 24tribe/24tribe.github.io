@@ -155,24 +155,6 @@
         };
     };
 
-    const splitDungeonParts = (dungeonData) => {
-        let startPart = null;
-        let endPart = null;
-        let middleParts = new Array();
-
-        for (const dungeonPart of dungeonData) {
-            if (dungeonPart.id == 101) {
-                startPart = dungeonPart;
-            } else if (dungeonPart.id == 201) {
-                endPart = dungeonPart;
-            } else {
-                middleParts.push(dungeonPart);
-            }
-        }
-
-        return [startPart, middleParts, endPart];
-    }
-
     const equalEntrances = (entrances1, entrances2) => {
         return entrances1.top === entrances2.top
                && entrances1.right === entrances2.right
@@ -261,7 +243,10 @@
     };
 
     const genDungeon2 = (dungeonData, cityId) => {
-        const [startPart, middleParts, endPart] = splitDungeonParts(dungeonData);
+        const splittedDungeonParts = splitDungeonParts(dungeonData)
+        const startPart = splittedDungeonParts.startPart;
+        const middleParts = splittedDungeonParts.middleParts;
+        const endPart = splittedDungeonParts.endPart;
 
         console.log("startPart: ", startPart);
         console.log("endPart: ", endPart);

@@ -12,7 +12,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 201,
@@ -27,7 +27,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 301,
@@ -42,7 +42,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 302,
@@ -117,7 +117,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 602,
@@ -192,7 +192,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 801,
@@ -207,7 +207,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 901,
@@ -222,7 +222,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1001,
@@ -237,7 +237,7 @@
         "left": 0
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1101,
@@ -260,7 +260,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1102,
@@ -375,7 +375,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1202,
@@ -490,7 +490,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1302,
@@ -605,7 +605,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1402,
@@ -720,7 +720,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1502,
@@ -835,7 +835,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1602,
@@ -950,7 +950,7 @@
         "left": 1
       }
     ],
-    "angle": null
+    "angle": 0
   },
   {
     "id": 1802,
