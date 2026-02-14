@@ -6,7 +6,6 @@ var NTI33555173 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI134217746 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI536871351 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI989855767 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI33554466 = {size: 0,kind: 1,base: null,node: null,finalizer: null};
 var NTI536871364 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI536870932 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI536870934 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
@@ -16,6 +15,7 @@ var NTI536871014 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI687866351 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI520094029 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI536871157 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI33554466 = {size: 0,kind: 1,base: null,node: null,finalizer: null};
 var NTI536870933 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI536870937 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI536870936 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
@@ -81,10 +81,11 @@ var NNI536870933 = {kind: 2, len: 6, offset: 0, typ: null, name: null, sons: [{k
 {kind: 1, offset: "left", len: 0, typ: NTI33554435, name: "left", sons: null}]};
 NTI536870933.node = NNI536870933;
 NTI536870937.base = NTI536870933;
-var NNI536870936 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "id", len: 0, typ: NTI33554435, name: "id", sons: null}, 
+var NNI536870936 = {kind: 2, len: 5, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "id", len: 0, typ: NTI33554435, name: "id", sons: null}, 
 {kind: 1, offset: "name", len: 0, typ: NTI33554449, name: "name", sons: null}, 
 {kind: 1, offset: "blocks", len: 0, typ: NTI536870937, name: "blocks", sons: null}, 
-{kind: 1, offset: "angle", len: 0, typ: NTI33554435, name: "angle", sons: null}]};
+{kind: 1, offset: "angle", len: 0, typ: NTI33554435, name: "angle", sons: null}, 
+{kind: 1, offset: "canHaveMobs", len: 0, typ: NTI33554466, name: "canHaveMobs", sons: null}]};
 NTI536870936.node = NNI536870936;
 NTI536870935.base = NTI536870936;
 NTI536871158.base = NTI536870935;
@@ -739,13 +740,13 @@ function auxWriteStackTrace__system_u2084(f_p0) {
     
     Label5: {
       var j_33556562 = 0;
-      var colontmp__536871811 = 0;
-      colontmp__536871811 = (i_33556527 - 1);
-      var res_536871813 = colontmp__536871811;
+      var colontmp__536871834 = 0;
+      colontmp__536871834 = (i_33556527 - 1);
+      var res_536871836 = colontmp__536871834;
       Label6: {
           Label7: while (true) {
-          if (!(0 <= res_536871813)) break Label7;
-            j_33556562 = res_536871813;
+          if (!(0 <= res_536871836)) break Label7;
+            j_33556562 = res_536871836;
             result_33556518[0].push.apply(result_33556518[0], cstrToNimstr(tempFrames_33556529[j_33556562].Field2));;
             if ((0 < tempFrames_33556529[j_33556562].Field1)) {
             result_33556518[0].push.apply(result_33556518[0], [40]);;
@@ -761,7 +762,7 @@ function auxWriteStackTrace__system_u2084(f_p0) {
             result_33556518[0].push.apply(result_33556518[0], [32,97,116,32]);;
             add__system_u1942(result_33556518, 0, tempFrames_33556529[j_33556562].Field0);
             result_33556518[0].push.apply(result_33556518[0], [10]);;
-            res_536871813 -= 1;
+            res_536871836 -= 1;
           }
       };
     };
@@ -896,19 +897,19 @@ function addChars__stdZprivateZdigitsutils_u202(result_p0, result_p0_Idx, x_p1, 
       var iHEX60gensym4_301990110 = 0;
       F.line = 128;
       F.filename = "iterators_1.nim";
-      var i_536871806 = 0;
+      var i_536871829 = 0;
       Label3: {
         F.line = 129;
           Label4: while (true) {
-          if (!(i_536871806 < n_p3)) break Label4;
+          if (!(i_536871829 < n_p3)) break Label4;
             F.line = 50;
             F.filename = "digitsutils.nim";
-            iHEX60gensym4_301990110 = i_536871806;
+            iHEX60gensym4_301990110 = i_536871829;
             F.line = 47;
             result_p0[result_p0_Idx][chckIndx(addInt(old_301990096, iHEX60gensym4_301990110), 0, (result_p0[result_p0_Idx]).length - 1)] = x_p1.charCodeAt(chckIndx(addInt(start_p2, iHEX60gensym4_301990110), 0, (x_p1).length - 1));
             F.line = 131;
             F.filename = "iterators_1.nim";
-            i_536871806 = addInt(i_536871806, 1);
+            i_536871829 = addInt(i_536871829, 1);
           }
       };
     };
@@ -1032,27 +1033,27 @@ function skipRandomNumbers__pureZrandom_u45(s_p0) {
       var i_671088698 = 0;
       F.line = 96;
       F.filename = "iterators_1.nim";
-      var res_536871800 = 0;
+      var res_536871823 = 0;
       Label2: {
         F.line = 97;
           Label3: while (true) {
-          if (!(res_536871800 <= 1)) break Label3;
+          if (!(res_536871823 <= 1)) break Label3;
             F.line = 220;
             F.filename = "random.nim";
-            i_671088698 = res_536871800;
+            i_671088698 = res_536871823;
             Label4: {
               F.line = 221;
               var b_671088703 = 0;
               F.line = 128;
               F.filename = "iterators_1.nim";
-              var i_536871798 = 0;
+              var i_536871821 = 0;
               Label5: {
                 F.line = 129;
                   Label6: while (true) {
-                  if (!(i_536871798 < 64)) break Label6;
+                  if (!(i_536871821 < 64)) break Label6;
                     F.line = 221;
                     F.filename = "random.nim";
-                    b_671088703 = i_536871798;
+                    b_671088703 = i_536871821;
                     if (!(((helper_671088687[chckIndx(i_671088698, 0, (helper_671088687).length - 1)] & BigInt.asUintN(64, 1n << BigInt(BigInt.asUintN(64, BigInt(b_671088703))))) == 0n))) {
                     F.line = 223;
                     s0_671088688 = (s0_671088688 ^ s_p0.a0);
@@ -1064,12 +1065,12 @@ function skipRandomNumbers__pureZrandom_u45(s_p0) {
                     (next__pureZrandom_u36(s_p0));
                     F.line = 131;
                     F.filename = "iterators_1.nim";
-                    i_536871798 = addInt(i_536871798, 1);
+                    i_536871821 = addInt(i_536871821, 1);
                   }
               };
             };
             F.line = 102;
-            res_536871800 = addInt(res_536871800, 1);
+            res_536871823 = addInt(res_536871823, 1);
           }
       };
     };
@@ -1139,16 +1140,16 @@ function randomize__pureZrandom_u299() {
   
 }
 
-function newSeq__dungeon_u368(len_p0) {
-  var result_536871284 = [];
+function newSeq__dungeon_u369(len_p0) {
+  var result_536871285 = [];
 
   var F = {procname: "newSeq.newSeq", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system.nim", line: 0};
   framePtr = F;
     F.line = 651;
     F.filename = "system.nim";
-    result_536871284 = new Array(len_p0); for (var i = 0 ; i < len_p0 ; ++i) { result_536871284[i] = null; }  framePtr = F.prev;
+    result_536871285 = new Array(len_p0); for (var i = 0 ; i < len_p0 ; ++i) { result_536871285[i] = null; }  framePtr = F.prev;
 
-  return result_536871284;
+  return result_536871285;
 
 }
 
@@ -1185,51 +1186,51 @@ function failedAssertImpl__stdZassertions_u84(msg_p0) {
   
 }
 
-function splitDungeonParts__dungeon_u348(dungeonData_p0) {
-  var result_536871262 = {Field0: null, Field1: [], Field2: null};
+function splitDungeonParts__dungeon_u349(dungeonData_p0) {
+  var result_536871263 = {Field0: null, Field1: [], Field2: null};
 
   var F = {procname: "dungeon.splitDungeonParts", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 136;
-    F.filename = "dungeon.nim";
-    var startPart_536871263 = null;
     F.line = 137;
-    var middleParts_536871321 = newSeq__dungeon_u368(0);
+    F.filename = "dungeon.nim";
+    var startPart_536871264 = null;
     F.line = 138;
-    var endPart_536871322 = null;
+    var middleParts_536871322 = newSeq__dungeon_u369(0);
+    F.line = 139;
+    var endPart_536871323 = null;
     Label1: {
-      F.line = 140;
-      var dungeonpart_536871345 = null;
+      F.line = 141;
+      var dungeonpart_536871346 = null;
       F.line = 249;
       F.filename = "iterators.nim";
-      var i_536871821 = 0;
+      var i_536871844 = 0;
       F.line = 250;
-      var L_536871822 = (dungeonData_p0).length;
+      var L_536871845 = (dungeonData_p0).length;
       Label2: {
         F.line = 251;
           Label3: while (true) {
-          if (!(i_536871821 < L_536871822)) break Label3;
-            F.line = 140;
+          if (!(i_536871844 < L_536871845)) break Label3;
+            F.line = 141;
             F.filename = "dungeon.nim";
-            dungeonpart_536871345 = dungeonData_p0[chckIndx(i_536871821, 0, (dungeonData_p0).length - 1)];
-            if ((dungeonpart_536871345.id == 101)) {
-            F.line = 142;
-            startPart_536871263 = dungeonpart_536871345;
+            dungeonpart_536871346 = dungeonData_p0[chckIndx(i_536871844, 0, (dungeonData_p0).length - 1)];
+            if ((dungeonpart_536871346.id == 101)) {
+            F.line = 143;
+            startPart_536871264 = dungeonpart_536871346;
             }
             else {
-            if ((dungeonpart_536871345.id == 201)) {
-            F.line = 144;
-            endPart_536871322 = dungeonpart_536871345;
+            if ((dungeonpart_536871346.id == 201)) {
+            F.line = 145;
+            endPart_536871323 = dungeonpart_536871346;
             }
             else {
-              F.line = 146;
-            middleParts_536871321.push(dungeonpart_536871345);;
+              F.line = 147;
+            middleParts_536871322.push(dungeonpart_536871346);;
             }
             }
             F.line = 13;
             F.filename = "iterators.nim";
-            i_536871821 += 1;
-            if (!(((dungeonData_p0).length == L_536871822))) {
+            i_536871844 += 1;
+            if (!(((dungeonData_p0).length == L_536871845))) {
             F.line = 254;
             failedAssertImpl__stdZassertions_u84(makeNimstrLit("C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system\\iterators.nim(254, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -1237,18 +1238,18 @@ function splitDungeonParts__dungeon_u348(dungeonData_p0) {
           }
       };
     };
-    F.line = 148;
+    F.line = 149;
     F.filename = "dungeon.nim";
-    var colontmp__536871824 = startPart_536871263;
-    F.line = 148;
-    var colontmp__536871825 = nimCopy(null, middleParts_536871321, NTI536871158);
-    F.line = 148;
-    var colontmp__536871826 = endPart_536871322;
-    F.line = 148;
-    result_536871262 = nimCopy(result_536871262, {Field0: colontmp__536871824, Field1: nimCopy(null, colontmp__536871825, NTI536871158), Field2: colontmp__536871826}, NTI536871157);
+    var colontmp__536871847 = startPart_536871264;
+    F.line = 149;
+    var colontmp__536871848 = nimCopy(null, middleParts_536871322, NTI536871158);
+    F.line = 149;
+    var colontmp__536871849 = endPart_536871323;
+    F.line = 149;
+    result_536871263 = nimCopy(result_536871263, {Field0: colontmp__536871847, Field1: nimCopy(null, colontmp__536871848, NTI536871158), Field2: colontmp__536871849}, NTI536871157);
   framePtr = F.prev;
 
-  return result_536871262;
+  return result_536871263;
 
 }
 
@@ -1265,61 +1266,61 @@ function newSeq__stdZsyncio_u559(len_p0) {
 
 }
 
-function createGrid__dungeon_u80(gridWidth_p0, gridHeight_p1) {
-  var result_536870995 = [];
+function createGrid__dungeon_u81(gridWidth_p0, gridHeight_p1) {
+  var result_536870996 = [];
 
   var F = {procname: "dungeon.createGrid", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
     Label1: {
-      F.line = 51;
+      F.line = 52;
       F.filename = "dungeon.nim";
-      var y_536871000 = 0;
+      var y_536871001 = 0;
       F.line = 128;
       F.filename = "iterators_1.nim";
-      var i_536871833 = 0;
+      var i_536871856 = 0;
       Label2: {
         F.line = 129;
           Label3: while (true) {
-          if (!(i_536871833 < gridHeight_p1)) break Label3;
-            F.line = 51;
-            F.filename = "dungeon.nim";
-            y_536871000 = i_536871833;
+          if (!(i_536871856 < gridHeight_p1)) break Label3;
             F.line = 52;
-            var row_536871021 = newSeq__stdZsyncio_u559(0);
+            F.filename = "dungeon.nim";
+            y_536871001 = i_536871856;
+            F.line = 53;
+            var row_536871022 = newSeq__stdZsyncio_u559(0);
             Label4: {
-              F.line = 54;
-              var x_536871026 = 0;
+              F.line = 55;
+              var x_536871027 = 0;
               F.line = 128;
               F.filename = "iterators_1.nim";
-              var i_536871831 = 0;
+              var i_536871854 = 0;
               Label5: {
                 F.line = 129;
                   Label6: while (true) {
-                  if (!(i_536871831 < gridWidth_p0)) break Label6;
-                    F.line = 54;
-                    F.filename = "dungeon.nim";
-                    x_536871026 = i_536871831;
+                  if (!(i_536871854 < gridWidth_p0)) break Label6;
                     F.line = 55;
-                    row_536871021.push([78]);;
+                    F.filename = "dungeon.nim";
+                    x_536871027 = i_536871854;
+                    F.line = 56;
+                    row_536871022.push([78]);;
                     F.line = 131;
                     F.filename = "iterators_1.nim";
-                    i_536871831 = addInt(i_536871831, 1);
+                    i_536871854 = addInt(i_536871854, 1);
                   }
               };
             };
-            F.line = 57;
+            F.line = 58;
             F.filename = "dungeon.nim";
-            var Temporary7 = nimCopy(null, row_536871021, NTI520094029);
-            result_536870995.push(Temporary7);;
+            var Temporary7 = nimCopy(null, row_536871022, NTI520094029);
+            result_536870996.push(Temporary7);;
             F.line = 131;
             F.filename = "iterators_1.nim";
-            i_536871833 = addInt(i_536871833, 1);
+            i_536871856 = addInt(i_536871856, 1);
           }
       };
     };
   framePtr = F.prev;
 
-  return result_536870995;
+  return result_536870996;
 
 }
 
@@ -1372,8 +1373,8 @@ function rand__pureZrandom_u112(r_p0, max_p1) {
 
 }
 
-function rand__dungeon_u65(r_p0, x_p1) {
-  var result_536870981 = 0;
+function rand__dungeon_u66(r_p0, x_p1) {
+  var result_536870982 = 0;
 
   var F = {procname: "rand.rand", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\random.nim", line: 0};
   framePtr = F;
@@ -1384,24 +1385,24 @@ function rand__dungeon_u65(r_p0, x_p1) {
     }
     
     F.line = 354;
-    result_536870981 = Number(BigInt.asIntN(32, BigInt.asUintN(64, (rand__pureZrandom_u112(r_p0, BigInt.asUintN(64, (BigInt.asUintN(64, BigInt(x_p1.b)) - BigInt.asUintN(64, BigInt(x_p1.a))))) + BigInt.asUintN(64, BigInt(x_p1.a))))));
+    result_536870982 = Number(BigInt.asIntN(32, BigInt.asUintN(64, (rand__pureZrandom_u112(r_p0, BigInt.asUintN(64, (BigInt.asUintN(64, BigInt(x_p1.b)) - BigInt.asUintN(64, BigInt(x_p1.a))))) + BigInt.asUintN(64, BigInt(x_p1.a))))));
   framePtr = F.prev;
 
-  return result_536870981;
+  return result_536870982;
 
 }
 
-function rand__dungeon_u57(x_p0) {
-  var result_536870972 = 0;
+function rand__dungeon_u58(x_p0) {
+  var result_536870973 = 0;
 
   var F = {procname: "rand.rand", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\random.nim", line: 0};
   framePtr = F;
     F.line = 376;
     F.filename = "random.nim";
-    result_536870972 = rand__dungeon_u65(state_671088655[0], x_p0);
+    result_536870973 = rand__dungeon_u66(state_671088655[0], x_p0);
   framePtr = F.prev;
 
-  return result_536870972;
+  return result_536870973;
 
 }
 
@@ -1419,17 +1420,17 @@ function HEX2EHEX2E__stdZstrbasics_u48(a_p0, b_p1) {
 
 }
 
-function getRandomInt__dungeon_u39(max_p0) {
-  var result_536870953 = 0;
+function getRandomInt__dungeon_u40(max_p0) {
+  var result_536870954 = 0;
 
   var F = {procname: "dungeon.getRandomInt", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 47;
+    F.line = 48;
     F.filename = "dungeon.nim";
-    result_536870953 = rand__dungeon_u57(HEX2EHEX2E__stdZstrbasics_u48(0, subInt(max_p0, 1)));
+    result_536870954 = rand__dungeon_u58(HEX2EHEX2E__stdZstrbasics_u48(0, subInt(max_p0, 1)));
   framePtr = F.prev;
 
-  return result_536870953;
+  return result_536870954;
 
 }
 
@@ -1447,29 +1448,29 @@ function contains__pureZtimes_u1783(s_p0, value_p1) {
 
 }
 
-function validPosition__dungeon_u179(grid_p0, x_p1, y_p2) {
-  var result_536871095 = false;
+function validPosition__dungeon_u180(grid_p0, x_p1, y_p2) {
+  var result_536871096 = false;
 
   var F = {procname: "dungeon.validPosition", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 70;
-    F.filename = "dungeon.nim";
-    var gridHeight_536871100 = (grid_p0).length;
     F.line = 71;
-    var gridWidth_536871104 = (grid_p0[chckIndx(0, 0, (grid_p0).length - 1)]).length;
+    F.filename = "dungeon.nim";
+    var gridHeight_536871101 = (grid_p0).length;
     F.line = 72;
-    result_536871095 = (contains__pureZtimes_u1783(HEX2EHEX2E__stdZstrbasics_u48(0, subInt(gridWidth_536871104, 1)), x_p1) && contains__pureZtimes_u1783(HEX2EHEX2E__stdZstrbasics_u48(0, subInt(gridHeight_536871100, 1)), y_p2));
+    var gridWidth_536871105 = (grid_p0[chckIndx(0, 0, (grid_p0).length - 1)]).length;
+    F.line = 73;
+    result_536871096 = (contains__pureZtimes_u1783(HEX2EHEX2E__stdZstrbasics_u48(0, subInt(gridWidth_536871105, 1)), x_p1) && contains__pureZtimes_u1783(HEX2EHEX2E__stdZstrbasics_u48(0, subInt(gridHeight_536871101, 1)), y_p2));
   framePtr = F.prev;
 
-  return result_536871095;
+  return result_536871096;
 
 }
 
-function setIfValidPos__dungeon_u282(grid_p0, grid_p0_Idx, x_p1, y_p2, val_p3) {
+function setIfValidPos__dungeon_u283(grid_p0, grid_p0_Idx, x_p1, y_p2, val_p3) {
   var F = {procname: "dungeon.setIfValidPos", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    if (validPosition__dungeon_u179(grid_p0[grid_p0_Idx], x_p1, y_p2)) {
-    F.line = 88;
+    if (validPosition__dungeon_u180(grid_p0[grid_p0_Idx], x_p1, y_p2)) {
+    F.line = 89;
     F.filename = "dungeon.nim";
     grid_p0[grid_p0_Idx][chckIndx(y_p2, 0, (grid_p0[grid_p0_Idx]).length - 1)][chckIndx(x_p1, 0, (grid_p0[grid_p0_Idx][chckIndx(y_p2, 0, (grid_p0[grid_p0_Idx]).length - 1)]).length - 1)] = nimCopy(null, val_p3, NTI33554449);
     }
@@ -1479,66 +1480,66 @@ function setIfValidPos__dungeon_u282(grid_p0, grid_p0_Idx, x_p1, y_p2, val_p3) {
   
 }
 
-function getNeighbourPositions__dungeon_u123(x_p0, y_p1) {
-  var result_536871038 = [];
+function getNeighbourPositions__dungeon_u124(x_p0, y_p1) {
+  var result_536871039 = [];
 
   var F = {procname: "dungeon.getNeighbourPositions", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 61;
+    F.line = 62;
     F.filename = "dungeon.nim";
-    result_536871038 = nimCopy(null, [new Int32Array([subInt(x_p0, 1), y_p1]), new Int32Array([addInt(x_p0, 1), y_p1]), new Int32Array([x_p0, addInt(y_p1, 1)]), new Int32Array([x_p0, subInt(y_p1, 1)])], NTI536871014);
+    result_536871039 = nimCopy(null, [new Int32Array([subInt(x_p0, 1), y_p1]), new Int32Array([addInt(x_p0, 1), y_p1]), new Int32Array([x_p0, addInt(y_p1, 1)]), new Int32Array([x_p0, subInt(y_p1, 1)])], NTI536871014);
   framePtr = F.prev;
 
-  return result_536871038;
+  return result_536871039;
 
 }
 
-function getPossibleNextPositions__dungeon_u231(x_p0, y_p1, grid_p2) {
-  var result_536871147 = [];
+function getPossibleNextPositions__dungeon_u232(x_p0, y_p1, grid_p2) {
+  var result_536871148 = [];
 
   var F = {procname: "dungeon.getPossibleNextPositions", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
     Label1: {
-      F.line = 76;
+      F.line = 77;
       F.filename = "dungeon.nim";
-      var pos_536871170 = new Int32Array(2);
+      var pos_536871171 = new Int32Array(2);
       F.line = 247;
       F.filename = "iterators.nim";
-      var colontmp__536871837 = [];
-      F.line = 76;
+      var colontmp__536871860 = [];
+      F.line = 77;
       F.filename = "dungeon.nim";
-      colontmp__536871837 = getNeighbourPositions__dungeon_u123(x_p0, y_p1);
+      colontmp__536871860 = getNeighbourPositions__dungeon_u124(x_p0, y_p1);
       F.line = 249;
       F.filename = "iterators.nim";
-      var i_536871839 = 0;
+      var i_536871862 = 0;
       F.line = 250;
-      var L_536871840 = (colontmp__536871837).length;
+      var L_536871863 = (colontmp__536871860).length;
       Label2: {
         F.line = 251;
           Label3: while (true) {
-          if (!(i_536871839 < L_536871840)) break Label3;
-            F.line = 76;
-            F.filename = "dungeon.nim";
-            pos_536871170 = colontmp__536871837[chckIndx(i_536871839, 0, (colontmp__536871837).length - 1)];
+          if (!(i_536871862 < L_536871863)) break Label3;
             F.line = 77;
-            var neightbourX_536871171 = pos_536871170[chckIndx(0, 0, (pos_536871170).length - 1)];
+            F.filename = "dungeon.nim";
+            pos_536871171 = colontmp__536871860[chckIndx(i_536871862, 0, (colontmp__536871860).length - 1)];
             F.line = 78;
-            var neightbourY_536871172 = pos_536871170[chckIndx(1, 0, (pos_536871170).length - 1)];
-            if (validPosition__dungeon_u179(grid_p2, neightbourX_536871171, neightbourY_536871172)) {
-            F.line = 81;
-            var node_536871173 = nimCopy(null, grid_p2[chckIndx(neightbourY_536871172, 0, (grid_p2).length - 1)][chckIndx(neightbourX_536871171, 0, (grid_p2[chckIndx(neightbourY_536871172, 0, (grid_p2).length - 1)]).length - 1)], NTI33554449);
-            if ((eqStrings(node_536871173, [78]) || eqStrings(node_536871173, [79]))) {
-            F.line = 83;
-            var Temporary4 = nimCopy(null, pos_536871170, NTI536870919);
-            result_536871147.push(Temporary4);;
+            var neightbourX_536871172 = pos_536871171[chckIndx(0, 0, (pos_536871171).length - 1)];
+            F.line = 79;
+            var neightbourY_536871173 = pos_536871171[chckIndx(1, 0, (pos_536871171).length - 1)];
+            if (validPosition__dungeon_u180(grid_p2, neightbourX_536871172, neightbourY_536871173)) {
+            F.line = 82;
+            var node_536871174 = nimCopy(null, grid_p2[chckIndx(neightbourY_536871173, 0, (grid_p2).length - 1)][chckIndx(neightbourX_536871172, 0, (grid_p2[chckIndx(neightbourY_536871173, 0, (grid_p2).length - 1)]).length - 1)], NTI33554449);
+            if ((eqStrings(node_536871174, [78]) || eqStrings(node_536871174, [79]))) {
+            F.line = 84;
+            var Temporary4 = nimCopy(null, pos_536871171, NTI536870919);
+            result_536871148.push(Temporary4);;
             }
             
             }
             
             F.line = 13;
             F.filename = "iterators.nim";
-            i_536871839 += 1;
-            if (!(((colontmp__536871837).length == L_536871840))) {
+            i_536871862 += 1;
+            if (!(((colontmp__536871860).length == L_536871863))) {
             F.line = 254;
             failedAssertImpl__stdZassertions_u84(makeNimstrLit("C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system\\iterators.nim(254, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -1548,134 +1549,134 @@ function getPossibleNextPositions__dungeon_u231(x_p0, y_p1, grid_p2) {
     };
   framePtr = F.prev;
 
-  return result_536871147;
+  return result_536871148;
 
 }
 
-function pop__dungeon_u306(s_p0, s_p0_Idx) {
-  var result_536871221 = new Int32Array(2);
+function pop__dungeon_u307(s_p0, s_p0_Idx) {
+  var result_536871222 = new Int32Array(2);
 
   var F = {procname: "pop.pop", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system.nim", line: 0};
   framePtr = F;
     F.line = 1790;
     F.filename = "system.nim";
-    var L_536871225 = subInt((s_p0[s_p0_Idx]).length, 1);
+    var L_536871226 = subInt((s_p0[s_p0_Idx]).length, 1);
     F.line = 1795;
-    result_536871221 = nimCopy(result_536871221, s_p0[s_p0_Idx][chckIndx(L_536871225, 0, (s_p0[s_p0_Idx]).length - 1)], NTI536870919);
+    result_536871222 = nimCopy(result_536871222, s_p0[s_p0_Idx][chckIndx(L_536871226, 0, (s_p0[s_p0_Idx]).length - 1)], NTI536870919);
     F.line = 1796;
-    if (s_p0[s_p0_Idx].length < chckRange(L_536871225, 0, 2147483647)) { for (var i = s_p0[s_p0_Idx].length ; i < chckRange(L_536871225, 0, 2147483647) ; ++i) s_p0[s_p0_Idx].push(new Int32Array(2)); }
-               else { s_p0[s_p0_Idx].length = chckRange(L_536871225, 0, 2147483647); };
+    if (s_p0[s_p0_Idx].length < chckRange(L_536871226, 0, 2147483647)) { for (var i = s_p0[s_p0_Idx].length ; i < chckRange(L_536871226, 0, 2147483647) ; ++i) s_p0[s_p0_Idx].push(new Int32Array(2)); }
+               else { s_p0[s_p0_Idx].length = chckRange(L_536871226, 0, 2147483647); };
   framePtr = F.prev;
 
-  return result_536871221;
+  return result_536871222;
 
 }
 
-function getPath__dungeon_u287(gridWidth_p0, gridHeight_p1) {
-  var result_536871202 = [[]];
+function getPath__dungeon_u288(gridWidth_p0, gridHeight_p1) {
+  var result_536871203 = [[]];
 
   var F = {procname: "dungeon.getPath", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 92;
+    F.line = 93;
     F.filename = "dungeon.nim";
-    var grid_536871203 = [createGrid__dungeon_u80(gridWidth_p0, gridHeight_p1)];
-    F.line = 94;
-    var objX_536871204 = getRandomInt__dungeon_u39(gridWidth_p0);
+    var grid_536871204 = [createGrid__dungeon_u81(gridWidth_p0, gridHeight_p1)];
     F.line = 95;
-    var objY_536871205 = 0;
+    var objX_536871205 = getRandomInt__dungeon_u40(gridWidth_p0);
     F.line = 96;
-    var startX_536871206 = getRandomInt__dungeon_u39(gridWidth_p0);
+    var objY_536871206 = 0;
     F.line = 97;
-    var startY_536871207 = subInt(gridHeight_p1, 1);
-    F.line = 99;
-    setIfValidPos__dungeon_u282(grid_536871203, 0, subInt(objX_536871204, 1), objY_536871205, [86]);
+    var startX_536871207 = getRandomInt__dungeon_u40(gridWidth_p0);
+    F.line = 98;
+    var startY_536871208 = subInt(gridHeight_p1, 1);
     F.line = 100;
-    setIfValidPos__dungeon_u282(grid_536871203, 0, addInt(objX_536871204, 1), objY_536871205, [86]);
+    setIfValidPos__dungeon_u283(grid_536871204, 0, subInt(objX_536871205, 1), objY_536871206, [86]);
     F.line = 101;
-    grid_536871203[0][chckIndx(objY_536871205, 0, (grid_536871203[0]).length - 1)][chckIndx(objX_536871204, 0, (grid_536871203[0][chckIndx(objY_536871205, 0, (grid_536871203[0]).length - 1)]).length - 1)] = nimCopy(null, [79], NTI33554449);
-    F.line = 103;
-    grid_536871203[0][chckIndx(startY_536871207, 0, (grid_536871203[0]).length - 1)][chckIndx(startX_536871206, 0, (grid_536871203[0][chckIndx(startY_536871207, 0, (grid_536871203[0]).length - 1)]).length - 1)] = nimCopy(null, [86], NTI33554449);
+    setIfValidPos__dungeon_u283(grid_536871204, 0, addInt(objX_536871205, 1), objY_536871206, [86]);
+    F.line = 102;
+    grid_536871204[0][chckIndx(objY_536871206, 0, (grid_536871204[0]).length - 1)][chckIndx(objX_536871205, 0, (grid_536871204[0][chckIndx(objY_536871206, 0, (grid_536871204[0]).length - 1)]).length - 1)] = nimCopy(null, [79], NTI33554449);
     F.line = 104;
-    setIfValidPos__dungeon_u282(grid_536871203, 0, subInt(startX_536871206, 1), startY_536871207, [86]);
+    grid_536871204[0][chckIndx(startY_536871208, 0, (grid_536871204[0]).length - 1)][chckIndx(startX_536871207, 0, (grid_536871204[0][chckIndx(startY_536871208, 0, (grid_536871204[0]).length - 1)]).length - 1)] = nimCopy(null, [86], NTI33554449);
     F.line = 105;
-    setIfValidPos__dungeon_u282(grid_536871203, 0, addInt(startX_536871206, 1), startY_536871207, [86]);
-    F.line = 107;
-    result_536871202[0].push(new Int32Array([startX_536871206, startY_536871207]));;
-    F.line = 109;
-    var x_536871212 = startX_536871206;
+    setIfValidPos__dungeon_u283(grid_536871204, 0, subInt(startX_536871207, 1), startY_536871208, [86]);
+    F.line = 106;
+    setIfValidPos__dungeon_u283(grid_536871204, 0, addInt(startX_536871207, 1), startY_536871208, [86]);
+    F.line = 108;
+    result_536871203[0].push(new Int32Array([startX_536871207, startY_536871208]));;
     F.line = 110;
-    var y_536871213 = startY_536871207;
+    var x_536871213 = startX_536871207;
+    F.line = 111;
+    var y_536871214 = startY_536871208;
     Label1: {
-      F.line = 112;
+      F.line = 113;
         Label2: while (true) {
-        if (!!(eqStrings(grid_536871203[0][chckIndx(y_536871213, 0, (grid_536871203[0]).length - 1)][chckIndx(x_536871212, 0, (grid_536871203[0][chckIndx(y_536871213, 0, (grid_536871203[0]).length - 1)]).length - 1)], [79]))) break Label2;
+        if (!!(eqStrings(grid_536871204[0][chckIndx(y_536871214, 0, (grid_536871204[0]).length - 1)][chckIndx(x_536871213, 0, (grid_536871204[0][chckIndx(y_536871214, 0, (grid_536871204[0]).length - 1)]).length - 1)], [79]))) break Label2;
           Label3: {
-            F.line = 113;
-            var nextPositions_536871214 = getPossibleNextPositions__dungeon_u231(x_536871212, y_536871213, grid_536871203[0]);
-            if (((nextPositions_536871214).length == 0)) {
-            F.line = 116;
-            (pop__dungeon_u306(result_536871202, 0));
+            F.line = 114;
+            var nextPositions_536871215 = getPossibleNextPositions__dungeon_u232(x_536871213, y_536871214, grid_536871204[0]);
+            if (((nextPositions_536871215).length == 0)) {
             F.line = 117;
-            var lastPos_536871233 = nimCopy(null, result_536871202[0][chckIndx(subInt((result_536871202[0]).length, 1), 0, (result_536871202[0]).length - 1)], NTI536870919);
+            (pop__dungeon_u307(result_536871203, 0));
             F.line = 118;
-            x_536871212 = lastPos_536871233[chckIndx(0, 0, (lastPos_536871233).length - 1)];
+            var lastPos_536871234 = nimCopy(null, result_536871203[0][chckIndx(subInt((result_536871203[0]).length, 1), 0, (result_536871203[0]).length - 1)], NTI536870919);
             F.line = 119;
-            y_536871213 = lastPos_536871233[chckIndx(1, 0, (lastPos_536871233).length - 1)];
+            x_536871213 = lastPos_536871234[chckIndx(0, 0, (lastPos_536871234).length - 1)];
             F.line = 120;
+            y_536871214 = lastPos_536871234[chckIndx(1, 0, (lastPos_536871234).length - 1)];
+            F.line = 121;
             break Label3;
             }
             
-            F.line = 122;
-            var nextPos_536871237 = nimCopy(null, nextPositions_536871214[chckIndx(getRandomInt__dungeon_u39((nextPositions_536871214).length), 0, (nextPositions_536871214).length - 1)], NTI536870919);
             F.line = 123;
-            var nextPosX_536871238 = nextPos_536871237[chckIndx(0, 0, (nextPos_536871237).length - 1)];
+            var nextPos_536871238 = nimCopy(null, nextPositions_536871215[chckIndx(getRandomInt__dungeon_u40((nextPositions_536871215).length), 0, (nextPositions_536871215).length - 1)], NTI536870919);
             F.line = 124;
-            var nextPosY_536871239 = nextPos_536871237[chckIndx(1, 0, (nextPos_536871237).length - 1)];
-            if (!(eqStrings(grid_536871203[0][chckIndx(nextPosY_536871239, 0, (grid_536871203[0]).length - 1)][chckIndx(nextPosX_536871238, 0, (grid_536871203[0][chckIndx(nextPosY_536871239, 0, (grid_536871203[0]).length - 1)]).length - 1)], [79]))) {
-            F.line = 127;
-            grid_536871203[0][chckIndx(nextPosY_536871239, 0, (grid_536871203[0]).length - 1)][chckIndx(nextPosX_536871238, 0, (grid_536871203[0][chckIndx(nextPosY_536871239, 0, (grid_536871203[0]).length - 1)]).length - 1)] = nimCopy(null, [86], NTI33554449);
+            var nextPosX_536871239 = nextPos_536871238[chckIndx(0, 0, (nextPos_536871238).length - 1)];
+            F.line = 125;
+            var nextPosY_536871240 = nextPos_536871238[chckIndx(1, 0, (nextPos_536871238).length - 1)];
+            if (!(eqStrings(grid_536871204[0][chckIndx(nextPosY_536871240, 0, (grid_536871204[0]).length - 1)][chckIndx(nextPosX_536871239, 0, (grid_536871204[0][chckIndx(nextPosY_536871240, 0, (grid_536871204[0]).length - 1)]).length - 1)], [79]))) {
+            F.line = 128;
+            grid_536871204[0][chckIndx(nextPosY_536871240, 0, (grid_536871204[0]).length - 1)][chckIndx(nextPosX_536871239, 0, (grid_536871204[0][chckIndx(nextPosY_536871240, 0, (grid_536871204[0]).length - 1)]).length - 1)] = nimCopy(null, [86], NTI33554449);
             }
             
-            F.line = 129;
-            x_536871212 = nextPosX_536871238;
             F.line = 130;
-            y_536871213 = nextPosY_536871239;
-            F.line = 132;
-            result_536871202[0].push(new Int32Array([x_536871212, y_536871213]));;
+            x_536871213 = nextPosX_536871239;
+            F.line = 131;
+            y_536871214 = nextPosY_536871240;
+            F.line = 133;
+            result_536871203[0].push(new Int32Array([x_536871213, y_536871214]));;
           };
         }
     };
   framePtr = F.prev;
 
-  return result_536871202[0];
+  return result_536871203[0];
 
 }
 
-function updateEntrances__dungeon_u488(entrances_p0, nodePos_p1, otherNodePos_p2) {
+function updateEntrances__dungeon_u489(entrances_p0, nodePos_p1, otherNodePos_p2) {
   var F = {procname: "dungeon.updateEntrances", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 152;
-    F.filename = "dungeon.nim";
-    var diffX_536871404 = subInt(nodePos_p1[chckIndx(0, 0, (nodePos_p1).length - 1)], otherNodePos_p2[chckIndx(0, 0, (otherNodePos_p2).length - 1)]);
     F.line = 153;
-    var diffY_536871405 = subInt(nodePos_p1[chckIndx(1, 0, (nodePos_p1).length - 1)], otherNodePos_p2[chckIndx(1, 0, (otherNodePos_p2).length - 1)]);
-    if ((diffX_536871404 == 1)) {
-    F.line = 156;
+    F.filename = "dungeon.nim";
+    var diffX_536871405 = subInt(nodePos_p1[chckIndx(0, 0, (nodePos_p1).length - 1)], otherNodePos_p2[chckIndx(0, 0, (otherNodePos_p2).length - 1)]);
+    F.line = 154;
+    var diffY_536871406 = subInt(nodePos_p1[chckIndx(1, 0, (nodePos_p1).length - 1)], otherNodePos_p2[chckIndx(1, 0, (otherNodePos_p2).length - 1)]);
+    if ((diffX_536871405 == 1)) {
+    F.line = 157;
     entrances_p0.right = 1;
     }
     else {
-    if ((diffX_536871404 == (-1))) {
-    F.line = 158;
+    if ((diffX_536871405 == (-1))) {
+    F.line = 159;
     entrances_p0.left = 1;
     }
     }
-    if ((diffY_536871405 == 1)) {
-    F.line = 161;
+    if ((diffY_536871406 == 1)) {
+    F.line = 162;
     entrances_p0.bottom = 1;
     }
     else {
-    if ((diffY_536871405 == (-1))) {
-    F.line = 163;
+    if ((diffY_536871406 == (-1))) {
+    F.line = 164;
     entrances_p0.top = 1;
     }
     }
@@ -1684,96 +1685,96 @@ function updateEntrances__dungeon_u488(entrances_p0, nodePos_p1, otherNodePos_p2
   
 }
 
-function getMiddleNodesEntrances__dungeon_u494(path_p0) {
-  var result_536871408 = [];
+function getMiddleNodesEntrances__dungeon_u495(path_p0) {
+  var result_536871409 = [];
 
   var F = {procname: "dungeon.getMiddleNodesEntrances", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
     Label1: {
-      F.line = 167;
+      F.line = 168;
       F.filename = "dungeon.nim";
-      var i_536871416 = 0;
+      var i_536871417 = 0;
       F.line = 126;
       F.filename = "iterators_1.nim";
-      var colontmp__536871843 = 0;
-      F.line = 167;
+      var colontmp__536871866 = 0;
+      F.line = 168;
       F.filename = "dungeon.nim";
-      colontmp__536871843 = subInt((path_p0).length, 1);
+      colontmp__536871866 = subInt((path_p0).length, 1);
       F.line = 128;
       F.filename = "iterators_1.nim";
-      var i_536871844 = 1;
+      var i_536871867 = 1;
       Label2: {
         F.line = 129;
           Label3: while (true) {
-          if (!(i_536871844 < colontmp__536871843)) break Label3;
-            F.line = 167;
-            F.filename = "dungeon.nim";
-            i_536871416 = i_536871844;
+          if (!(i_536871867 < colontmp__536871866)) break Label3;
             F.line = 168;
-            var entrances_536871417 = [{top: 0, right: 0, bottom: 0, left: 0}];
+            F.filename = "dungeon.nim";
+            i_536871417 = i_536871867;
             F.line = 169;
-            var nodePos_536871418 = nimCopy(null, path_p0[chckIndx(i_536871416, 0, (path_p0).length - 1)], NTI536870919);
+            var entrances_536871418 = [{top: 0, right: 0, bottom: 0, left: 0}];
             F.line = 170;
-            var lastNodePos_536871419 = nimCopy(null, path_p0[chckIndx(subInt(i_536871416, 1), 0, (path_p0).length - 1)], NTI536870919);
+            var nodePos_536871419 = nimCopy(null, path_p0[chckIndx(i_536871417, 0, (path_p0).length - 1)], NTI536870919);
             F.line = 171;
-            var nextNodePos_536871420 = nimCopy(null, path_p0[chckIndx(addInt(i_536871416, 1), 0, (path_p0).length - 1)], NTI536870919);
-            F.line = 173;
-            updateEntrances__dungeon_u488(entrances_536871417[0], lastNodePos_536871419, nodePos_536871418);
+            var lastNodePos_536871420 = nimCopy(null, path_p0[chckIndx(subInt(i_536871417, 1), 0, (path_p0).length - 1)], NTI536870919);
+            F.line = 172;
+            var nextNodePos_536871421 = nimCopy(null, path_p0[chckIndx(addInt(i_536871417, 1), 0, (path_p0).length - 1)], NTI536870919);
             F.line = 174;
-            updateEntrances__dungeon_u488(entrances_536871417[0], nextNodePos_536871420, nodePos_536871418);
-            F.line = 176;
-            var Temporary4 = nimCopy(null, entrances_536871417[0], NTI536870934);
-            result_536871408.push(Temporary4);;
+            updateEntrances__dungeon_u489(entrances_536871418[0], lastNodePos_536871420, nodePos_536871419);
+            F.line = 175;
+            updateEntrances__dungeon_u489(entrances_536871418[0], nextNodePos_536871421, nodePos_536871419);
+            F.line = 177;
+            var Temporary4 = nimCopy(null, entrances_536871418[0], NTI536870934);
+            result_536871409.push(Temporary4);;
             F.line = 131;
             F.filename = "iterators_1.nim";
-            i_536871844 = addInt(i_536871844, 1);
+            i_536871867 = addInt(i_536871867, 1);
           }
       };
     };
   framePtr = F.prev;
 
-  return result_536871408;
+  return result_536871409;
 
 }
 
-function copyAndApplyPos__dungeon_u532(part_p0, pos_p1) {
-  var result_536871447 = null;
+function copyAndApplyPos__dungeon_u533(part_p0, pos_p1) {
+  var result_536871448 = null;
 
   var F = {procname: "dungeon.copyAndApplyPos", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 180;
-    F.filename = "dungeon.nim";
-    result_536871447 = ({id: 0, name: [], blocks: [], angle: 0});
     F.line = 181;
-    result_536871447.id = part_p0.id;
+    F.filename = "dungeon.nim";
+    result_536871448 = ({id: 0, name: [], blocks: [], angle: 0, canHaveMobs: false});
     F.line = 182;
-    result_536871447.name = nimCopy(null, part_p0.name, NTI33554449);
+    result_536871448.id = part_p0.id;
     F.line = 183;
-    result_536871447.angle = part_p0.angle;
+    result_536871448.name = nimCopy(null, part_p0.name, NTI33554449);
+    F.line = 184;
+    result_536871448.angle = part_p0.angle;
     Label1: {
-      F.line = 185;
-      var oldBlock_536871473 = ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0});
+      F.line = 186;
+      var oldBlock_536871474 = ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0});
       F.line = 249;
       F.filename = "iterators.nim";
-      var i_536871848 = 0;
+      var i_536871871 = 0;
       F.line = 250;
-      var L_536871849 = (part_p0.blocks).length;
+      var L_536871872 = (part_p0.blocks).length;
       Label2: {
         F.line = 251;
           Label3: while (true) {
-          if (!(i_536871848 < L_536871849)) break Label3;
-            F.line = 185;
-            F.filename = "dungeon.nim";
-            oldBlock_536871473 = part_p0.blocks[chckIndx(i_536871848, 0, (part_p0.blocks).length - 1)];
+          if (!(i_536871871 < L_536871872)) break Label3;
             F.line = 186;
-            var newBlock_536871474 = {x: addInt(oldBlock_536871473.x, pos_p1[chckIndx(0, 0, (pos_p1).length - 1)]), y: addInt(oldBlock_536871473.y, pos_p1[chckIndx(1, 0, (pos_p1).length - 1)]), top: 0, right: 0, bottom: 0, left: 0};
+            F.filename = "dungeon.nim";
+            oldBlock_536871474 = part_p0.blocks[chckIndx(i_536871871, 0, (part_p0.blocks).length - 1)];
             F.line = 187;
-            var Temporary4 = nimCopy(null, newBlock_536871474, NTI536870933);
-            result_536871447.blocks.push(Temporary4);;
+            var newBlock_536871475 = {x: addInt(oldBlock_536871474.x, pos_p1[chckIndx(0, 0, (pos_p1).length - 1)]), y: addInt(oldBlock_536871474.y, pos_p1[chckIndx(1, 0, (pos_p1).length - 1)]), top: 0, right: 0, bottom: 0, left: 0};
+            F.line = 188;
+            var Temporary4 = nimCopy(null, newBlock_536871475, NTI536870933);
+            result_536871448.blocks.push(Temporary4);;
             F.line = 13;
             F.filename = "iterators.nim";
-            i_536871848 += 1;
-            if (!(((part_p0.blocks).length == L_536871849))) {
+            i_536871871 += 1;
+            if (!(((part_p0.blocks).length == L_536871872))) {
             F.line = 254;
             failedAssertImpl__stdZassertions_u84(makeNimstrLit("C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system\\iterators.nim(254, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -1783,185 +1784,185 @@ function copyAndApplyPos__dungeon_u532(part_p0, pos_p1) {
     };
   framePtr = F.prev;
 
-  return result_536871447;
+  return result_536871448;
 
 }
 
-function dungeonPartToDungeonPiece__dungeon_u639(dungeonPart_p0, cityId_p1, nodePos_p2) {
-  var result_536871555 = ({x: 0, y: 0, rotate: 0, dungeonPieceId: 0});
+function dungeonPartToDungeonPiece__dungeon_u641(dungeonPart_p0, cityId_p1, nodePos_p2) {
+  var result_536871557 = ({x: 0, y: 0, rotate: 0, dungeonPieceId: 0});
 
   var F = {procname: "dungeon.dungeonPartToDungeonPiece", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 193;
-    F.filename = "dungeon.nim";
-    var absoluteDungeonPart_536871556 = copyAndApplyPos__dungeon_u532(dungeonPart_p0, nodePos_p2);
     F.line = 194;
-    result_536871555 = nimCopy(result_536871555, {x: absoluteDungeonPart_536871556.blocks[chckIndx(0, 0, (absoluteDungeonPart_536871556.blocks).length - 1)].x, y: absoluteDungeonPart_536871556.blocks[chckIndx(0, 0, (absoluteDungeonPart_536871556.blocks).length - 1)].y, rotate: absoluteDungeonPart_536871556.angle, dungeonPieceId: addInt(mulInt(cityId_p1, 10000), absoluteDungeonPart_536871556.id)}, NTI536870932);
+    F.filename = "dungeon.nim";
+    var absoluteDungeonPart_536871558 = copyAndApplyPos__dungeon_u533(dungeonPart_p0, nodePos_p2);
+    F.line = 195;
+    result_536871557 = nimCopy(result_536871557, {x: absoluteDungeonPart_536871558.blocks[chckIndx(0, 0, (absoluteDungeonPart_536871558.blocks).length - 1)].x, y: absoluteDungeonPart_536871558.blocks[chckIndx(0, 0, (absoluteDungeonPart_536871558.blocks).length - 1)].y, rotate: absoluteDungeonPart_536871558.angle, dungeonPieceId: addInt(mulInt(cityId_p1, 10000), absoluteDungeonPart_536871558.id)}, NTI536870932);
   framePtr = F.prev;
 
-  return result_536871555;
+  return result_536871557;
 
 }
 
-function none__dungeon_u686() {
-  var result_536871605 = ({val: ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0}), has: false});
+function none__dungeon_u688() {
+  var result_536871607 = ({val: ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0}), has: false});
 
   var F = {procname: "none.none", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\options.nim", line: 0};
   framePtr = F;
     F.line = 155;
     F.filename = "options.nim";
-    result_536871605 = nimCopy(result_536871605, {val: ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0}), has: false}, NTI536871364);
+    result_536871607 = nimCopy(result_536871607, {val: ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0}), has: false}, NTI536871364);
   framePtr = F.prev;
 
-  return result_536871605;
+  return result_536871607;
 
 }
 
-function equalEntrances__dungeon_u664(entrances1_p0, entrances2_p1) {
-  var result_536871579 = false;
+function equalEntrances__dungeon_u666(entrances1_p0, entrances2_p1) {
+  var result_536871581 = false;
 
   var F = {procname: "dungeon.equalEntrances", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 205;
+    F.line = 206;
     F.filename = "dungeon.nim";
-    result_536871579 = ((((entrances1_p0.top == entrances2_p1.top) && (entrances1_p0.right == entrances2_p1.right)) && (entrances1_p0.bottom == entrances2_p1.bottom)) && (entrances1_p0.left == entrances2_p1.left));
+    result_536871581 = ((((entrances1_p0.top == entrances2_p1.top) && (entrances1_p0.right == entrances2_p1.right)) && (entrances1_p0.bottom == entrances2_p1.bottom)) && (entrances1_p0.left == entrances2_p1.left));
   framePtr = F.prev;
 
-  return result_536871579;
+  return result_536871581;
 
 }
 
-function isSome__dungeon_u729(self_p0) {
-  var result_536871644 = false;
+function isSome__dungeon_u731(self_p0) {
+  var result_536871646 = false;
 
   var F = {procname: "isSome.isSome", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\options.nim", line: 0};
   framePtr = F;
     F.line = 162;
     F.filename = "options.nim";
-    result_536871644 = self_p0.has;
+    result_536871646 = self_p0.has;
   framePtr = F.prev;
 
-  return result_536871644;
+  return result_536871646;
 
 }
 
-function isNone__dungeon_u758(self_p0) {
-  var result_536871673 = false;
+function isNone__dungeon_u760(self_p0) {
+  var result_536871675 = false;
 
   var F = {procname: "isNone.isNone", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\options.nim", line: 0};
   framePtr = F;
     F.line = 177;
     F.filename = "options.nim";
-    result_536871673 = !(self_p0.has);
+    result_536871675 = !(self_p0.has);
   framePtr = F.prev;
 
-  return result_536871673;
+  return result_536871675;
 
 }
 
-function get__dungeon_u750(self_p0) {
-  var result_536871665 = null;
+function get__dungeon_u752(self_p0) {
+  var result_536871667 = null;
 
   var F = {procname: "get.get", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\options.nim", line: 0};
   framePtr = F;
   BeforeRet: {
-    if (isNone__dungeon_u758(self_p0)) {
+    if (isNone__dungeon_u760(self_p0)) {
     F.line = 231;
     F.filename = "options.nim";
     raiseException({message: [67,97,110,39,116,32,111,98,116,97,105,110,32,97,32,118,97,108,117,101,32,102,114,111,109,32,97,32,96,110,111,110,101,96], parent: null, m_type: NTI989855767, name: null, trace: [], up: null}, "UnpackDefect");
     }
     
     F.line = 232;
-    result_536871665 = self_p0.val;
+    result_536871667 = self_p0.val;
     break BeforeRet;
   };
   framePtr = F.prev;
 
-  return result_536871665;
+  return result_536871667;
 
 }
 
-function some__dungeon_u795(val_p0) {
-  var result_536871710 = ({val: ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0}), has: false});
+function some__dungeon_u797(val_p0) {
+  var result_536871712 = ({val: ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0}), has: false});
 
   var F = {procname: "some.some", prev: framePtr, filename: "C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\pure\\options.nim", line: 0};
   framePtr = F;
     F.line = 142;
     F.filename = "options.nim";
-    result_536871710 = nimCopy(result_536871710, {has: true, val: nimCopy(null, val_p0, NTI536870933)}, NTI536871351);
+    result_536871712 = nimCopy(result_536871712, {has: true, val: nimCopy(null, val_p0, NTI536870933)}, NTI536871351);
   framePtr = F.prev;
 
-  return result_536871710;
+  return result_536871712;
 
 }
 
-function partCanFit__dungeon_u668(i_p0, part_p1, path_p2, middleNodesEntrances_p3) {
-  var result_536871585 = false;
+function partCanFit__dungeon_u670(i_p0, part_p1, path_p2, middleNodesEntrances_p3) {
+  var result_536871587 = false;
 
   var F = {procname: "dungeon.partCanFit", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
   BeforeRet: {
     if (((path_p2).length <= addInt(i_p0, (part_p1.blocks).length))) {
-    F.line = 213;
+    F.line = 214;
     F.filename = "dungeon.nim";
-    result_536871585 = false;
+    result_536871587 = false;
     break BeforeRet;
     }
     
-    F.line = 215;
-    var j_536871592 = 0;
     F.line = 216;
-    var lastBlock_536871630 = [none__dungeon_u686()];
+    var j_536871594 = 0;
+    F.line = 217;
+    var lastBlock_536871632 = [none__dungeon_u688()];
     Label1: {
-      F.line = 218;
-      var bloc_536871634 = ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0});
+      F.line = 219;
+      var bloc_536871636 = ({x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0});
       F.line = 249;
       F.filename = "iterators.nim";
-      var i_536871856 = 0;
+      var i_536871879 = 0;
       F.line = 250;
-      var L_536871857 = (part_p1.blocks).length;
+      var L_536871880 = (part_p1.blocks).length;
       Label2: {
         F.line = 251;
           Label3: while (true) {
-          if (!(i_536871856 < L_536871857)) break Label3;
-            F.line = 218;
-            F.filename = "dungeon.nim";
-            bloc_536871634 = part_p1.blocks[chckIndx(i_536871856, 0, (part_p1.blocks).length - 1)];
+          if (!(i_536871879 < L_536871880)) break Label3;
             F.line = 219;
-            var entrances_536871635 = nimCopy(null, middleNodesEntrances_p3[chckIndx(addInt(subInt(i_p0, 1), j_536871592), 0, (middleNodesEntrances_p3).length - 1)], NTI536870934);
+            F.filename = "dungeon.nim";
+            bloc_536871636 = part_p1.blocks[chckIndx(i_536871879, 0, (part_p1.blocks).length - 1)];
             F.line = 220;
-            var blockEntrances_536871636 = {top: bloc_536871634.top, right: bloc_536871634.right, bottom: bloc_536871634.bottom, left: bloc_536871634.left};
-            if (!(equalEntrances__dungeon_u664(entrances_536871635, blockEntrances_536871636))) {
-            F.line = 226;
-            result_536871585 = false;
+            var entrances_536871637 = nimCopy(null, middleNodesEntrances_p3[chckIndx(addInt(subInt(i_p0, 1), j_536871594), 0, (middleNodesEntrances_p3).length - 1)], NTI536870934);
+            F.line = 221;
+            var blockEntrances_536871638 = {top: bloc_536871636.top, right: bloc_536871636.right, bottom: bloc_536871636.bottom, left: bloc_536871636.left};
+            if (!(equalEntrances__dungeon_u666(entrances_536871637, blockEntrances_536871638))) {
+            F.line = 227;
+            result_536871587 = false;
             break BeforeRet;
             }
             
-            if (isSome__dungeon_u729(lastBlock_536871630[0])) {
-            F.line = 229;
-            var lastNodePos_536871646 = nimCopy(null, path_p2[chckIndx(subInt(addInt(i_p0, j_536871592), 1), 0, (path_p2).length - 1)], NTI536870919);
+            if (isSome__dungeon_u731(lastBlock_536871632[0])) {
             F.line = 230;
-            var nodePos_536871647 = nimCopy(null, path_p2[chckIndx(addInt(i_p0, j_536871592), 0, (path_p2).length - 1)], NTI536870919);
+            var lastNodePos_536871648 = nimCopy(null, path_p2[chckIndx(subInt(addInt(i_p0, j_536871594), 1), 0, (path_p2).length - 1)], NTI536870919);
             F.line = 231;
-            var diffX_536871648 = subInt(nodePos_536871647[chckIndx(0, 0, (nodePos_536871647).length - 1)], lastNodePos_536871646[chckIndx(0, 0, (lastNodePos_536871646).length - 1)]);
+            var nodePos_536871649 = nimCopy(null, path_p2[chckIndx(addInt(i_p0, j_536871594), 0, (path_p2).length - 1)], NTI536870919);
             F.line = 232;
-            var diffY_536871649 = subInt(nodePos_536871647[chckIndx(1, 0, (nodePos_536871647).length - 1)], lastNodePos_536871646[chckIndx(1, 0, (lastNodePos_536871646).length - 1)]);
-            if ((!((subInt(bloc_536871634.x, get__dungeon_u750(lastBlock_536871630[0]).x) == diffX_536871648)) || !((subInt(bloc_536871634.y, get__dungeon_u750(lastBlock_536871630[0]).y) == diffY_536871649)))) {
-            F.line = 235;
-            result_536871585 = false;
+            var diffX_536871650 = subInt(nodePos_536871649[chckIndx(0, 0, (nodePos_536871649).length - 1)], lastNodePos_536871648[chckIndx(0, 0, (lastNodePos_536871648).length - 1)]);
+            F.line = 233;
+            var diffY_536871651 = subInt(nodePos_536871649[chckIndx(1, 0, (nodePos_536871649).length - 1)], lastNodePos_536871648[chckIndx(1, 0, (lastNodePos_536871648).length - 1)]);
+            if ((!((subInt(bloc_536871636.x, get__dungeon_u752(lastBlock_536871632[0]).x) == diffX_536871650)) || !((subInt(bloc_536871636.y, get__dungeon_u752(lastBlock_536871632[0]).y) == diffY_536871651)))) {
+            F.line = 236;
+            result_536871587 = false;
             break BeforeRet;
             }
             
             }
             
-            F.line = 237;
-            lastBlock_536871630[0] = nimCopy(lastBlock_536871630[0], some__dungeon_u795(bloc_536871634), NTI536871351);
             F.line = 238;
-            j_536871592 = addInt(j_536871592, 1);
+            lastBlock_536871632[0] = nimCopy(lastBlock_536871632[0], some__dungeon_u797(bloc_536871636), NTI536871351);
+            F.line = 239;
+            j_536871594 = addInt(j_536871594, 1);
             F.line = 13;
             F.filename = "iterators.nim";
-            i_536871856 += 1;
-            if (!(((part_p1.blocks).length == L_536871857))) {
+            i_536871879 += 1;
+            if (!(((part_p1.blocks).length == L_536871880))) {
             F.line = 254;
             failedAssertImpl__stdZassertions_u84(makeNimstrLit("C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system\\iterators.nim(254, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -1969,47 +1970,47 @@ function partCanFit__dungeon_u668(i_p0, part_p1, path_p2, middleNodesEntrances_p
           }
       };
     };
-    F.line = 240;
+    F.line = 241;
     F.filename = "dungeon.nim";
-    result_536871585 = true;
+    result_536871587 = true;
     break BeforeRet;
   };
   framePtr = F.prev;
 
-  return result_536871585;
+  return result_536871587;
 
 }
 
-function getPossibleParts__dungeon_u805(middleParts_p0, i_p1, path_p2, middleNodesEntrances_p3) {
-  var result_536871722 = [];
+function getPossibleParts__dungeon_u807(middleParts_p0, i_p1, path_p2, middleNodesEntrances_p3) {
+  var result_536871724 = [];
 
   var F = {procname: "dungeon.getPossibleParts", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
     Label1: {
-      F.line = 247;
+      F.line = 248;
       F.filename = "dungeon.nim";
-      var part_536871726 = null;
+      var part_536871728 = null;
       F.line = 249;
       F.filename = "iterators.nim";
-      var i_536871852 = 0;
+      var i_536871875 = 0;
       F.line = 250;
-      var L_536871853 = (middleParts_p0).length;
+      var L_536871876 = (middleParts_p0).length;
       Label2: {
         F.line = 251;
           Label3: while (true) {
-          if (!(i_536871852 < L_536871853)) break Label3;
-            F.line = 247;
+          if (!(i_536871875 < L_536871876)) break Label3;
+            F.line = 248;
             F.filename = "dungeon.nim";
-            part_536871726 = middleParts_p0[chckIndx(i_536871852, 0, (middleParts_p0).length - 1)];
-            if (partCanFit__dungeon_u668(i_p1, part_536871726, path_p2, middleNodesEntrances_p3)) {
-            F.line = 249;
-            result_536871722.push(part_536871726);;
+            part_536871728 = middleParts_p0[chckIndx(i_536871875, 0, (middleParts_p0).length - 1)];
+            if (partCanFit__dungeon_u670(i_p1, part_536871728, path_p2, middleNodesEntrances_p3)) {
+            F.line = 250;
+            result_536871724.push(part_536871728);;
             }
             
             F.line = 13;
             F.filename = "iterators.nim";
-            i_536871852 += 1;
-            if (!(((middleParts_p0).length == L_536871853))) {
+            i_536871875 += 1;
+            if (!(((middleParts_p0).length == L_536871876))) {
             F.line = 254;
             failedAssertImpl__stdZassertions_u84(makeNimstrLit("C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system\\iterators.nim(254, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -2019,60 +2020,128 @@ function getPossibleParts__dungeon_u805(middleParts_p0, i_p1, path_p2, middleNod
     };
   framePtr = F.prev;
 
-  return result_536871722;
+  return result_536871724;
+
+}
+
+function filterPartsThatCanHaveMobs__dungeon_u821(possibleParts_p0) {
+  var result_536871735 = [];
+
+  var F = {procname: "dungeon.filterPartsThatCanHaveMobs", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
+  framePtr = F;
+    Label1: {
+      F.line = 254;
+      F.filename = "dungeon.nim";
+      var part_536871739 = null;
+      F.line = 249;
+      F.filename = "iterators.nim";
+      var i_536871883 = 0;
+      F.line = 250;
+      var L_536871884 = (possibleParts_p0).length;
+      Label2: {
+        F.line = 251;
+          Label3: while (true) {
+          if (!(i_536871883 < L_536871884)) break Label3;
+            F.line = 254;
+            F.filename = "dungeon.nim";
+            part_536871739 = possibleParts_p0[chckIndx(i_536871883, 0, (possibleParts_p0).length - 1)];
+            if (part_536871739.canHaveMobs) {
+            F.line = 256;
+            result_536871735.push(part_536871739);;
+            }
+            
+            F.line = 13;
+            F.filename = "iterators.nim";
+            i_536871883 += 1;
+            if (!(((possibleParts_p0).length == L_536871884))) {
+            F.line = 254;
+            failedAssertImpl__stdZassertions_u84(makeNimstrLit("C:\\Users\\aine\\.choosenim\\toolchains\\nim-2.2.4\\lib\\system\\iterators.nim(254, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+            }
+            
+          }
+      };
+    };
+  framePtr = F.prev;
+
+  return result_536871735;
+
+}
+
+function pickPart__dungeon_u832(possibleParts_p0) {
+  var result_536871746 = null;
+
+  var F = {procname: "dungeon.pickPart", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
+  framePtr = F;
+  BeforeRet: {
+    F.line = 260;
+    F.filename = "dungeon.nim";
+    var partsThatCanHaveMobs_536871747 = filterPartsThatCanHaveMobs__dungeon_u821(possibleParts_p0);
+    if ((0 < (partsThatCanHaveMobs_536871747).length)) {
+    F.line = 263;
+    result_536871746 = partsThatCanHaveMobs_536871747[chckIndx(getRandomInt__dungeon_u40((partsThatCanHaveMobs_536871747).length), 0, (partsThatCanHaveMobs_536871747).length - 1)];
+    break BeforeRet;
+    }
+    
+    if (((possibleParts_p0).length == 0)) {
+    F.line = 266;
+    raiseException({message: [101,114,114,111,114,58,32,99,111,117,108,100,110,39,116,32,103,101,116,32,97,32,112,97,114,116,32,116,104,97,116,32,102,105,116], parent: null, m_type: NTI134217746, name: null, trace: [], up: null}, "ValueError");
+    }
+    
+    F.line = 268;
+    result_536871746 = possibleParts_p0[chckIndx(getRandomInt__dungeon_u40((possibleParts_p0).length), 0, (possibleParts_p0).length - 1)];
+    break BeforeRet;
+  };
+  framePtr = F.prev;
+
+  return result_536871746;
 
 }
 
 function genDungeon2(dungeonData_p0, cityId_p1) {
-  var result_536871734 = [];
+  var result_536871764 = [];
 
   var F = {procname: "dungeon.genDungeon2", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
   framePtr = F;
-    F.line = 253;
+    F.line = 272;
     F.filename = "dungeon.nim";
-    var tmpTuple_536871735 = splitDungeonParts__dungeon_u348(dungeonData_p0);
-    F.line = 253;
-    var startPart_536871736 = tmpTuple_536871735["Field0"];
-    F.line = 253;
-    var middleParts_536871737 = nimCopy(null, tmpTuple_536871735["Field1"], NTI536871158);
-    F.line = 253;
-    var endPart_536871738 = tmpTuple_536871735["Field2"];
-    F.line = 258;
-    var path_536871741 = getPath__dungeon_u287(3, 6);
-    F.line = 259;
-    var middleNodesEntrances_536871742 = getMiddleNodesEntrances__dungeon_u494(path_536871741);
-    F.line = 261;
-    var startNodePos_536871743 = nimCopy(null, path_536871741[chckIndx(0, 0, (path_536871741).length - 1)], NTI536870919);
-    F.line = 262;
-    var endNodePos_536871747 = nimCopy(null, path_536871741[chckIndx(subInt((path_536871741).length, 1), 0, (path_536871741).length - 1)], NTI536870919);
-    F.line = 264;
-    result_536871734.push(dungeonPartToDungeonPiece__dungeon_u639(startPart_536871736, cityId_p1, startNodePos_536871743));;
-    F.line = 266;
-    var i_536871752 = 1;
+    var tmpTuple_536871765 = splitDungeonParts__dungeon_u349(dungeonData_p0);
+    F.line = 272;
+    var startPart_536871766 = tmpTuple_536871765["Field0"];
+    F.line = 272;
+    var middleParts_536871767 = nimCopy(null, tmpTuple_536871765["Field1"], NTI536871158);
+    F.line = 272;
+    var endPart_536871768 = tmpTuple_536871765["Field2"];
+    F.line = 277;
+    var path_536871771 = getPath__dungeon_u288(3, 6);
+    F.line = 278;
+    var middleNodesEntrances_536871772 = getMiddleNodesEntrances__dungeon_u495(path_536871771);
+    F.line = 280;
+    var startNodePos_536871773 = nimCopy(null, path_536871771[chckIndx(0, 0, (path_536871771).length - 1)], NTI536870919);
+    F.line = 281;
+    var endNodePos_536871777 = nimCopy(null, path_536871771[chckIndx(subInt((path_536871771).length, 1), 0, (path_536871771).length - 1)], NTI536870919);
+    F.line = 283;
+    result_536871764.push(dungeonPartToDungeonPiece__dungeon_u641(startPart_536871766, cityId_p1, startNodePos_536871773));;
+    F.line = 285;
+    var i_536871782 = 1;
     Label1: {
-      F.line = 268;
+      F.line = 287;
         Label2: while (true) {
-        if (!(i_536871752 < subInt((path_536871741).length, 1))) break Label2;
-          F.line = 269;
-          var possibleParts_536871756 = getPossibleParts__dungeon_u805(middleParts_536871737, i_536871752, path_536871741, middleNodesEntrances_536871742);
-          if (((possibleParts_536871756).length == 0)) {
-          F.line = 272;
-          raiseException({message: [101,114,114,111,114,58,32,99,111,117,108,100,110,39,116,32,103,101,116,32,97,32,112,97,114,116,32,116,104,97,116,32,102,105,116], parent: null, m_type: NTI134217746, name: null, trace: [], up: null}, "ValueError");
-          }
-          
-          F.line = 274;
-          var foundPart_536871764 = possibleParts_536871756[chckIndx(getRandomInt__dungeon_u39((possibleParts_536871756).length), 0, (possibleParts_536871756).length - 1)];
-          F.line = 276;
-          result_536871734.push(dungeonPartToDungeonPiece__dungeon_u639(foundPart_536871764, cityId_p1, path_536871741[chckIndx(i_536871752, 0, (path_536871741).length - 1)]));;
-          F.line = 278;
-          i_536871752 = addInt(i_536871752, (foundPart_536871764.blocks).length);
+        if (!(i_536871782 < subInt((path_536871771).length, 1))) break Label2;
+          F.line = 288;
+          var possibleParts_536871786 = getPossibleParts__dungeon_u807(middleParts_536871767, i_536871782, path_536871771, middleNodesEntrances_536871772);
+          F.line = 290;
+          var foundPart_536871787 = pickPart__dungeon_u832(possibleParts_536871786);
+          F.line = 292;
+          result_536871764.push(dungeonPartToDungeonPiece__dungeon_u641(foundPart_536871787, cityId_p1, path_536871771[chckIndx(i_536871782, 0, (path_536871771).length - 1)]));;
+          F.line = 294;
+          i_536871782 = addInt(i_536871782, (foundPart_536871787.blocks).length);
         }
     };
-    F.line = 280;
-    result_536871734.push(dungeonPartToDungeonPiece__dungeon_u639(endPart_536871738, cityId_p1, endNodePos_536871747));;
+    F.line = 296;
+    result_536871764.push(dungeonPartToDungeonPiece__dungeon_u641(endPart_536871768, cityId_p1, endNodePos_536871777));;
   framePtr = F.prev;
 
-  return result_536871734;
+  return result_536871764;
 
 }
 var F = {procname: "module dungeon", prev: framePtr, filename: "D:\\tribenine\\24tribe.github.io\\src\\dungeon.nim", line: 0};
