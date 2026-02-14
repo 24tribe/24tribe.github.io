@@ -12,7 +12,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 201,
@@ -27,7 +28,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 301,
@@ -42,7 +44,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 302,
@@ -57,7 +60,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 303,
@@ -72,7 +76,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": true
   },
   {
     "id": 304,
@@ -87,7 +92,8 @@
         "left": 1
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 305,
@@ -102,7 +108,8 @@
         "left": 1
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": false
   },
   {
     "id": 601,
@@ -117,7 +124,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 602,
@@ -132,7 +140,8 @@
         "left": 1
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": true
   },
   {
     "id": 603,
@@ -147,7 +156,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 604,
@@ -162,7 +172,8 @@
         "left": 1
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   },
   {
     "id": 605,
@@ -177,7 +188,8 @@
         "left": 0
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 701,
@@ -192,7 +204,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 801,
@@ -207,7 +220,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 901,
@@ -222,7 +236,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1001,
@@ -237,7 +252,8 @@
         "left": 0
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1101,
@@ -260,7 +276,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1102,
@@ -283,7 +300,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1103,
@@ -306,7 +324,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": true
   },
   {
     "id": 1104,
@@ -329,7 +348,8 @@
         "left": 1
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 1105,
@@ -352,7 +372,8 @@
         "left": 0
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   },
   {
     "id": 1201,
@@ -375,7 +396,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1202,
@@ -398,7 +420,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1203,
@@ -421,7 +444,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": true
   },
   {
     "id": 1204,
@@ -444,7 +468,8 @@
         "left": 0
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 1205,
@@ -467,7 +492,8 @@
         "left": 1
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": false
   },
   {
     "id": 1301,
@@ -490,7 +516,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1302,
@@ -513,7 +540,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1303,
@@ -536,7 +564,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": true
   },
   {
     "id": 1304,
@@ -559,7 +588,8 @@
         "left": 0
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 1305,
@@ -582,7 +612,8 @@
         "left": 1
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   },
   {
     "id": 1401,
@@ -605,7 +636,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1402,
@@ -628,7 +660,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1403,
@@ -651,7 +684,8 @@
         "left": 1
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": false
   },
   {
     "id": 1404,
@@ -674,7 +708,8 @@
         "left": 0
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 1405,
@@ -697,7 +732,8 @@
         "left": 0
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   },
   {
     "id": 1501,
@@ -720,7 +756,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1502,
@@ -743,7 +780,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1503,
@@ -766,7 +804,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": false
   },
   {
     "id": 1504,
@@ -789,7 +828,8 @@
         "left": 0
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 1505,
@@ -812,7 +852,8 @@
         "left": 1
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   },
   {
     "id": 1601,
@@ -835,7 +876,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1602,
@@ -858,7 +900,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1603,
@@ -881,7 +924,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": true
   },
   {
     "id": 1604,
@@ -904,7 +948,8 @@
         "left": 0
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": false
   },
   {
     "id": 1605,
@@ -927,7 +972,8 @@
         "left": 1
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   },
   {
     "id": 1801,
@@ -950,7 +996,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": false
   },
   {
     "id": 1802,
@@ -973,7 +1020,8 @@
         "left": 1
       }
     ],
-    "angle": 0
+    "angle": 0,
+    "canHaveMobs": true
   },
   {
     "id": 1803,
@@ -996,7 +1044,8 @@
         "left": 0
       }
     ],
-    "angle": 90
+    "angle": 90,
+    "canHaveMobs": false
   },
   {
     "id": 1804,
@@ -1019,7 +1068,8 @@
         "left": 1
       }
     ],
-    "angle": 180
+    "angle": 180,
+    "canHaveMobs": true
   },
   {
     "id": 1805,
@@ -1042,6 +1092,7 @@
         "left": 0
       }
     ],
-    "angle": 270
+    "angle": 270,
+    "canHaveMobs": true
   }
 ]
