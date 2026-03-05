@@ -10,3 +10,4 @@ icon: lucide/download
 - Fixed warping to respite units
 - Add support for texture mods
 - Add a window to change characters' hair color
+- Now the main story can be followed to [this point](https://youtu.be/dLCiWCpVHPs?t=8492)
