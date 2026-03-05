@@ -28,11 +28,12 @@ that the mod changes. For example:
 
 Folder structure:
 ```
-- mods
-  - hina_tartan_dress
-    - hina_tartan_dress.modfile
-    - tex_chr030_001_wear01_c.png
-    - tex_chr030_001_hair01_c.png
+- launcher_folder
+  - mods
+    - hina_tartan_dress
+      - hina_tartan_dress.modfile
+      - tex_chr030_001_wear01_c.png
+      - tex_chr030_001_hair01_c.png
 ```
 
 Texture mod example
@@ -43,3 +44,39 @@ Creating a texture mod
 ----------------------
 To unpack the textures in the asset bundles download and install [AssetStudioMod](https://github.com/aelurum/AssetStudio/releases).
 For example, Hinagiku's base costume textures are inside `TRIBENINE/tribenine_Data/StreamingAssets/aa/8953a3774b75802d47fb9c364093f655.bundle`
+
+So before you open it with AssetStudioMod you need to specify the Unity version (2022.2.22f2 works here)
+![Specify Unity version](specify_unity_version.png){ loading=lazy }
+
+Then after opening it, filter by name (character textures start with 'tex_chrXXX', for Hina 'tex_chr030')
+and export the textures.
+![Export selected assets](export_selected_assets.png){ loading=lazy }
+
+Next, create a folder to put the mod inside the `mods` folder in the launcher. In that folder
+put the texture png and a modfile with the following content (use this [JSON formatter](https://jsonformatter.curiousconcept.com/) to check that the JSON is valid):
+
+`my_hina_mod.modfile`
+```
+{
+  "8953a3774b75802d47fb9c364093f655": [
+    "tex_chr030_001_wear01_c"
+  ]
+}
+```
+
+Folder structure:
+```
+- launcher_folder
+  - mods
+    - my_hina_mod
+      - my_hina_mod.modfile
+      - tex_chr030_001_wear01_c.png
+```
+
+The texture name is taken from the AssetStudioMod window:
+![Texture Name](texture_name.png){ loading=lazy }
+
+After that edit `tex_chr030_001_wear01_c.png` with any image editor and overwrite the texture png,
+and the mod should be complete.
+
+![Hina Tartan Dress](hina_tartan_dress.png){ loading=lazy }
