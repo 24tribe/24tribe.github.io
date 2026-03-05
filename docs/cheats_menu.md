@@ -4,7 +4,7 @@ icon: lucide/app-window
 
 # "Cheats" menu
 
-!["Cheats" menu](cheats_menu.png)
+!["Cheats" menu](https://i.imgur.com/uT9nYvU.png)
 
 It can be opened with INSERT.
 
