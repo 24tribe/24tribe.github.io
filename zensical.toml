@@ -17,7 +17,7 @@ site_name = "Tribe Nine Zero"
 # meaningful description of the site content for use by search engines.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A offline patch for Tribe Nine"
+site_description = "An offline patch for Tribe Nine"
 
 # The site_author attribute. This is used in the HTML head element.
 #
