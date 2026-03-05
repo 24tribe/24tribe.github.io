@@ -76,7 +76,7 @@ Folder structure:
 The texture name is taken from the AssetStudioMod window:
 ![Texture Name](https://i.imgur.com/RA7EpPq.png){ loading=lazy }
 
-After that edit `tex_chr030_001_wear01_c.png` with any image editor and overwrite the texture png,
+After that, edit `tex_chr030_001_wear01_c.png` with any image editor and overwrite the texture png,
 and the mod should be complete.
 
 ![Hina Tartan Dress](https://i.imgur.com/7r83AAA.png){ loading=lazy }
