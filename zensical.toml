@@ -298,8 +298,15 @@ toggle.name = "Switch to light mode"
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.
 # ----------------------------------------------------------------------------
-#[[project.extra.social]]
-#icon = "fontawesome/brands/github"
-#link = "https://github.com/user/repo"
 
+[[project.extra.social]]
+icon = "simple/reddit"
+link = "https://reddit.com/u/gyubid"
 
+[[project.extra.social]]
+icon = "simple/github"
+link = "https://github.com/gyubid"
+
+[[project.extra.social]]
+icon = "simple/buymeacoffee"
+link = "https://buymeacoffee.com/gyubid"
