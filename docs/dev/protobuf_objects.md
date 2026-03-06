@@ -8,6 +8,14 @@ The game used [protobuf](https://protobuf.dev/) objects to communicate with the 
 technical reasons, TNZ server part uses JSON to represent them. This page
 contains the name of the fields inside that objects and their type.
 
+## int
+
+C# Signed 32-bit integer (from -2,147,483,648 to 2,147,483,647)
+
+## Timestamp
+
+UTC date and time (string) with this format: "2026-04-16T20:43:39Z"
+
 ## AdventureAccessWarpPointRequest
 
 <p><b>warpPointId: </b><code><a href=#int>int</a></code></p>
