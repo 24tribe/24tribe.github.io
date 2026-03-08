@@ -2,6 +2,15 @@
 icon: lucide/download
 ---
 
+[TNZ v0.12.1](https://www.dropbox.com/scl/fi/7pr30326svb8ez8039rov/tnz-v0.12.1-x64.zip?rlkey=gxw9utplnsp56nweurax1j5ko&dl=1) (March 8, 2026)
+-------------
+- Fixed a bug in quests that have multiple objectives
+- Improved the implementation of adventure variables in game
+- Added cross-compiling support from Linux to Windows
+- Included the loader executable in releases
+- Improved Unicode handling in the loader
+- Added support for relative paths to libzero in the loader
+
 [TNZ v0.11.1](https://www.dropbox.com/scl/fi/8vfonlkp1zr80ybu9bq68/tnz-v0.11.1-x64.zip?rlkey=86yiqyolu0eazqdmh3mpy9zil&st=27cz3utb&dl=1) (March 6, 2026)
 ------------
 - Fixed a bug in Endrone battle start
