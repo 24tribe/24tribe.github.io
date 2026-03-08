@@ -46,11 +46,11 @@ To unpack the textures in the asset bundles download and install [AssetStudioMod
 For example, Hinagiku's base costume textures are inside `TRIBENINE/tribenine_Data/StreamingAssets/aa/8953a3774b75802d47fb9c364093f655.bundle`
 
 So before you open it with AssetStudioMod you need to specify the Unity version (2022.2.22f2 works here)
-![Specify Unity version](https://i.imgur.com/7DkAsju.png){ loading=lazy }
+![Specify Unity version](images/specify_unity_version.png){ loading=lazy }
 
 Then after opening it, filter by name (character textures start with 'tex_chrXXX', for Hina 'tex_chr030')
 and export the textures.
-![Export selected assets](https://i.imgur.com/IzdKdMs.png){ loading=lazy }
+![Export selected assets](images/export_selected_assets.png){ loading=lazy }
 
 Next, create a folder to put the mod inside the `mods` folder in the launcher. In that folder
 put the texture png and a modfile with the following content (use this [JSON formatter](https://jsonformatter.curiousconcept.com/) to check that the JSON is valid):
@@ -74,9 +74,9 @@ Folder structure:
 ```
 
 The texture name is taken from the AssetStudioMod window:
-![Texture Name](https://i.imgur.com/RA7EpPq.png){ loading=lazy }
+![Texture Name](images/texture_name.png){ loading=lazy }
 
 After that, edit `tex_chr030_001_wear01_c.png` with any image editor and overwrite the texture png,
 and the mod should be complete.
 
-![Hina Tartan Dress](https://i.imgur.com/7r83AAA.png){ loading=lazy }
+![Hina Tartan Dress](images/hina_tartan_dress.png){ loading=lazy }
