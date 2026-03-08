@@ -48,6 +48,7 @@ nav = [
     "cheats_menu.md",
     "releases.md",
     "texture mods.md",
+    "steam_deck.md",
   ]},
   { "Development" = [
     "dev/index.md",
