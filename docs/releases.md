@@ -2,6 +2,10 @@
 icon: lucide/download
 ---
 
+[TNZ v0.13.0](https://www.dropbox.com/scl/fi/3tt3uqbbmc3mgrp4xbzj3/tnz-v0.13.0-x64.zip?rlkey=lrf3vlf9iidw98vmq8gl8mntd&st=6jll3yu0&dl=1) (March 13, 2026)
+-------------
+- Fixed a bug that prevented opening the Cheats menu in the Steam Deck
+
 [TNZ v0.12.1](https://www.dropbox.com/scl/fi/7pr30326svb8ez8039rov/tnz-v0.12.1-x64.zip?rlkey=gxw9utplnsp56nweurax1j5ko&dl=1) (March 8, 2026)
 -------------
 - Fixed a bug in quests that have multiple objectives
