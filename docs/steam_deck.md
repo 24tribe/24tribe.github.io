@@ -2,6 +2,9 @@
 icon: simple/steamdeck
 ---
 
+**Edit: The following instructions are outdated, the loader and the launcher are no more. The only part that
+makes sense it's to use Proton Experimental.**
+
 The launcher doesn't work in Proton so you have to configure the loader arguments before playing:
 
 - Download the [latest release](https://24tribe.github.io/releases/)
