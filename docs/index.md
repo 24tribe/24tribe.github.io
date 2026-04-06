@@ -4,28 +4,38 @@ icon: lucide/rocket
 
 # Tribe Nine Zero
 
-TNZ is a project to run Tribe Nine as an offline game. It consists of a launcher that starts the game and injects a shared library. The library intercepts the game api functions that communicate with the server and provide a substitute for them.
+TNZ is a project with the objective of running Tribe Nine as an offline game.
+It consists of a library that intercepts the game api functions that communicate with the server
+and provide a substitute for them.
 
 ## How to play the offline version?
 
-- Download the [latest release](/releases) of the launcher
-- Extract it
-- Execute the launcher.exe
-- Press the start button. The first time it will ask you to locate the game executable (TRIBENINE.exe). After that it should launch the offline version.
+- Download the [latest release](/releases) of the offline mod.
+- Extract the files in the tnz-vX.X.X-x64 folder to the game folder, it should ask you to override
+- It should look like this:
+
+![Folder after extraction](https://24tribe.github.io/images/folder_after_extraction.png)
+
+- Open the game using tribenine.exe
+
+## How to update from an old version?
+
+Before updating, make sure to [create a savefile](/cheats_menu#save-files) to not lose your game progress.
+After that just follow the install instructions and load the save file.
 
 ## What's working
 
-- The main story from after the tutorial skip to [this point](https://youtu.be/dLCiWCpVHPs?t=8492)
-- Most battles
-- The Lux-Phantasma event (missing the intro dialog with Kazuki)
+- The main story until [this point](https://youtu.be/dLCiWCpVHPs?t=8492)
+- The battles
+- Patimons
 - The gacha
+- Lux Phantasma (but it's not accessible until I fix the teleport button in the cheats menu)
 
 ## What's not working
 
 - Unlocking chests with mobs death
-- Stats changes after leveling up
-- Missing some area objects 
-- Graffitis
+- The Paid Gems shop
+- The mails menu
 
 ## Known bugs
 
@@ -38,7 +48,3 @@ TNZ is a project to run Tribe Nine as an offline game. It consists of a launcher
 - In the login screen press the "Delete user data" button in the menu.
 - Use the INSERT key to toggle the "Cheats" menu, and press the "Move to zoneArea" button to change area to Mita's house.
 - Log into the game and the event's teleporter should be there.
-
-## How to update from an old version?
-
-Download the [latest release](/releases) of the launcher. Before updating, make sure to [create a savefile](/cheats_menu#save-files) to not lose your game progress. To update, extract the files in the tnz-vX.X.X folder of the zip file to the folder of the old launcher. When you are asked to replace files, do it.
