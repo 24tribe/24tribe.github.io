@@ -2,6 +2,11 @@
 icon: lucide/download
 ---
 
+[TNZ v0.16.6](https://www.dropbox.com/scl/fi/ssie9aczp43v9ygpplxbu/tnz-v0.16.6-x64.zip?rlkey=17bfe9kiae8q35n0ob2ww3bdt&e=1&st=z1fpe7vp&dl=1) (April 8, 2026)
+---------------
+- Fixed a bug that made the game crash at the start randomly
+- Creates the saves folder if it doesn't exists
+
 [TNZ v0.16.0](https://www.dropbox.com/scl/fi/qy7k8ptajba5b57upcvie/tnz-v0.16.0-x64.zip?rlkey=dt06yolbyj17epluq7bb3xmvg&st=ac3zz2ri&dl=1) (April 6, 2026)
 -----------------
 - Now the tutorial can be played
