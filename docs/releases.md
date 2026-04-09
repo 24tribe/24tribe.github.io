@@ -2,6 +2,10 @@
 icon: lucide/download
 ---
 
+[TNZ v0.16.7](https://www.dropbox.com/scl/fi/4j6tbhtzz74ihskag8rr0/tnz-v0.16.7-x64.zip?rlkey=b6106ervfpjtfd42qzl9qodol&st=jwbe79su&dl=1) (April 9, 2026)
+--------------
+- Reduced gems default to 4 millions to avoid a bug in which the sound of acquiring currency doesn't stop when checking graffiti
+
 [TNZ v0.16.6](https://www.dropbox.com/scl/fi/ssie9aczp43v9ygpplxbu/tnz-v0.16.6-x64.zip?rlkey=17bfe9kiae8q35n0ob2ww3bdt&e=1&st=z1fpe7vp&dl=1) (April 8, 2026)
 ---------------
 - Fixed a bug that made the game crash at the start randomly
