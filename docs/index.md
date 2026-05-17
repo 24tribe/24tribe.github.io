@@ -17,6 +17,7 @@ and provide a substitute for them.
 ![Folder after extraction](https://24tribe.github.io/images/folder_after_extraction.png)
 
 - Open the game using tribenine.exe
+- Clear your "player data" in the login screen (≡ -> Delete player data -> OK) before entering the game
 
 ## How to update from an old version?
 
