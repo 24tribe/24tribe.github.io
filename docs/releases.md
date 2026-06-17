@@ -2,6 +2,23 @@
 icon: lucide/download
 ---
 
+[TNZ v0.17.2](https://www.dropbox.com/scl/fi/lsv1zk2d4ngbm43tkb8o6/tnz-v0.17.2-x64.zip?rlkey=ap06q35rk4j00u2vb8hnado87&st=4f8jok74&dl=1) (June 17, 2026)
+-------------
+- Now dungeons have area items (chests, Broken PC, etc)
+- Implemented "Attack Test", "Battle Between the Revived", "Be a Forever Winner", "Clear the Rift {Name} {N} time(s)",
+  "Defense Test", "Field Research", "Happy Workaholic", "Helpful Demeanor", "Linked Signposts", "Modern Art",
+  "The Search For Truth", "Treasure Hunt", "Troubleshooter" and "Victors' Rights" missions
+- Implemented tension card enhancing
+- Implemented Happy Worker challenges
+- Implemented Zero Sensei missions rewards acquisition
+- Implemented the gems shop
+- Now healing in Respite units work
+- Fixed defeating enemies not unlocking chests
+- Fixed clearing some minigames not unlocking chests
+- Fixed "Move to area" cheat menu to teleport to a known location in the area.
+- Fixed mailbox and added a cheat menu to mail yourself custom Patimons
+- Now enemies respawn after a TP or accessing a Respite Unit.
+
 [TNZ v0.16.7](https://www.dropbox.com/scl/fi/4j6tbhtzz74ihskag8rr0/tnz-v0.16.7-x64.zip?rlkey=b6106ervfpjtfd42qzl9qodol&st=jwbe79su&dl=1) (April 9, 2026)
 --------------
 - Reduced gems default to 4 millions to avoid a bug in which the sound of acquiring currency doesn't stop when checking graffiti
