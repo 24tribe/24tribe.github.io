@@ -53,6 +53,7 @@ nav = [
   { "Development" = [
     "dev/index.md",
     "dev/protobuf_objects.md",
+    "dev/dungeon_generator.md",
   ]},
 ]
 
