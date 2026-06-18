@@ -22,7 +22,7 @@ jobs:
           python-version: 3.x
 
       - uses: jiro4989/setup-nim-action@v2
-      - with:
+        with:
           nim-version: '2.2.10'
 
       - run: python build.py semba
