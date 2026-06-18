@@ -23,7 +23,10 @@ def main():
     with open("dungeon.js", "r", encoding="utf-8") as dungeon_js_f:
         with open(docs_path/"dev/dungeon_generator.md", "w", encoding="utf-8") as f:
             with open(docs_path/"dev/dungeon_generator.dist.html", "r", encoding="utf-8") as dungeongen_dist:
-                f.write(f"""
+                f.write(f"""---
+icon: lucide/target
+---
+
 <script>
 {dungeon_js_f.read()}
 </script>
