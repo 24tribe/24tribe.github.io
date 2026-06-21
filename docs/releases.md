@@ -2,6 +2,14 @@
 icon: lucide/download
 ---
 
+[TNZ v0.17.6](https://www.dropbox.com/scl/fi/230or3947k3cf7x3d4hjq/tnz-v0.17.6-x64.zip?rlkey=pjxisz8vptm97xpea7oqu4ju7&st=tsal8keo&dl=1) (June 21, 2026)
+---------------
+
+- Fix a stray challenge objective left behind in "Marine Biology Research Center: Entrance" 
+- Fix missing nine sequence in "Hero: Jammed" challenge and the death of the last drone not being registered.
+- Fix the elevator not unlocking after completing the energy minigame in "Marine Biology Research Center: Corridor"
+- Fix locked chests of defeated enemies before the update
+
 [TNZ v0.17.2](https://www.dropbox.com/scl/fi/lsv1zk2d4ngbm43tkb8o6/tnz-v0.17.2-x64.zip?rlkey=ap06q35rk4j00u2vb8hnado87&st=4f8jok74&dl=1) (June 17, 2026)
 -------------
 - Now dungeons have area items (chests, Broken PC, etc)
